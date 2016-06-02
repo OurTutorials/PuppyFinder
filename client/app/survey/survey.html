@@ -1,3 +1,84 @@
+<div id= 'fullpage' full-page options="vm.mainOptions" >
+
+<!-- <div ng-repeat='url in imageUrl'>
+  <div class="section" id="section{{$index}}" style="background-image: url({{url}})" >
+    <div class="intro">
+    <h1>js</h1>
+    <p>Create Beautiful Fullscreen Scrolling Websites</p>
+  </div>
+</div>
+</div>
+ -->
+<div class="section" id="section0" style="background-image: url('/assets/back0.png')" >
+    <div class="intro">
+    </div>
+</div>
+<div class="section" id="section1" style="background-image: url('/assets/back1.png')">
+  <div class="intro">
+  </div>
+</div>
+
+<div class="section" id="section2" style="background-image: url('/assets/back2.png')">
+  <div class="intro">
+  </div>
+</div>
+
+<div class="section" id="section3" style="background-image: url('/assets/back3.png')">
+  <div class="intro">
+  </div>
+</div>
+
+<div class="section" id="section4" style="background-image: url('/assets/back4.png')">
+  <div class="intro">
+  </div>
+</div>
+
+<div class="section" id="section5" style="background-image: url('/assets/back5.png')">
+  <div class="intro">
+  </div>
+</div>
+
+</div>
+
+<!-- 
+
+
+  <div class="section" id="section10" >
+      <div class="slide">
+        <div class="intro">
+          <img src="images/slider.png" alt="slider" /> <br/>
+          <button ng-click="vm.addSlide();">Click Me to Add another Slide!</button>
+        </div>
+      </div>
+  </div> -->
+
+<!-- 
+  <div class="section" id="section12">
+    <div class="intro">
+      <h1 ng-click="vm.moog('sss')" >Example</h1>
+      <p>HTML markup example to define 4 sections.</p>
+      <img src="images/example2.png" alt="example" />
+    </div>
+  </div>
+
+
+  <div class="section" id="section13">
+    <div class="intro">
+      <h1>Working On Tablets</h1>
+      <p>
+        Designed to fit to different screen sizes as well as tablet and mobile devices.
+        <br /><br /><br /><br /><br /><br />
+      </p>
+    </div>
+    <img src="images/tablets.png" alt="tablets" />
+  </div> -->
+
+
+
+
+
+
+
 <md-content>
 
   <form name="survey" ng-submit="sendQuery()">
@@ -7,9 +88,6 @@
     <div class="in-card" layout="column" layout-align="center">
             <div class="question-header">{{questions[questionIndex].subject}}</div>
             <h1 class="question-h1">{{questions[questionIndex].title}}</h1>
-<!--
-                 <div md-virtual-repeat="question in questions">을 하면 모든 question정보를
-                띄워주기 때문에 question에 index값을 주고 누르면 index ++되도록 -->
 
              <fieldset id="{{questions[questionIndex].name}}" ng-form="{{questions[questionIndex].name}}">
               <label ng-repeat="option in questions[questionIndex].options">
@@ -19,23 +97,7 @@
               </label>
             </fieldset>
 
-<!--          <div class = "img">
-                <img src = "/assets/food/toronto_food.png">
-                <img src = "/assets/food/taiwan_food.png">
-                <img src = "/assets/food/nevada_food.png">
-                <img src = "/assets/food/madrid_food.jpg">
-                <img src = "/assets/food/iceland_food.png">
-            </div> -->
-            <!-- Options in a question should be grouped in a fieldset for form validation -->
-      <!--       <fieldset id="{{question.name}}" ng-form="{{question.name}}">
-              <label ng-repeat="option in question.options">
-                <input ng-model="data.puppyData[question.name]" type="radio" name="{{question.name}}" value="{{option.value}}" ng-required="true">
-                <span>옵션</span>
-                <br />
-              </label>
-            </fieldset> -->
-            <!-- Button to scroll(move) to the next question; disabled if this question is not answered -->
-            <button class="md-raised question" ng-if="true" ng-disabled="false" type="button" ng-click="nextquestion($index+1)">다음 질문</md-button>
+            <button class="md-raised question" ng-if="true" ng-disabled="false" type="button" ng-click="nextquestion()">다음 질문</md-button>
             <!-- Submit button for the entire form; disabled if any question is not answered -->
             <input class="md-button md-raised question primary" type="submit" ng-if="true" value="나에게 맞는 반려견 보기" ng-disabled="true" />
      </div>

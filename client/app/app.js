@@ -4,26 +4,37 @@ angular.module('puppyfinder', [
   'puppyfinder.result',
   'ngRoute',
   'ngMaterial',
+  'fullPage.js',
+  'ui.router'
 ])
-.config(function ($routeProvider, $httpProvider) {
-  $routeProvider
-    .when('/', {
+.config(function ($stateProvider, $httpProvider, $urlRouterProvider) {
+  $stateProvider
+    .state({
+      name: 'index',
+      url: '/',
       templateUrl: 'app/intro/intro.html',
       controller: 'IntroController'
     })
-    .when('/intro', {
+    .state({
+      name: 'intro',
+      url: '/intro',
       templateUrl: 'app/intro/intro.html',
       controller: 'IntroController'
     })
-    .when('/survey', {
+    .state( {
+      name: 'survey',
+      url: '/survey',
       templateUrl: 'app/survey/survey.html',
       controller: 'SurveyController',
+      controllerAs: 'vm'
     })
-    .when('/result', {
+    .state({
+      name: 'result',
+      url: '/result', 
       templateUrl: 'app/result/result.html',
       controller: 'ResultController'
     })
-    .otherwise('/intro');
+    $urlRouterProvider.otherwise('survey');
 })
 
 .controller('AppController', function($window){
