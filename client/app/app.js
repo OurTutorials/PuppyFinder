@@ -40,8 +40,8 @@ angular.module('puppyfinder', [
     1: {
       index : "slide1",
       subject : "질문01 | 여행계획",
-      title: "여행 계획이 있으신가요?",
-      content: "ㅇㅁㄴㅇㅁㄴㅇ.",
+      title: "당신이 여행지에 도착했습니다. 지금은 몇월일까요?",
+      content:"",
       name: "inside",
       options: [
         { value: "true", text: "네, 마당이나 뒤뜰에 공간을 마련할 수 있어요" },
@@ -52,8 +52,8 @@ angular.module('puppyfinder', [
     2: {
       index : "slide2",
       subject : "질문02 | 여행계획",
-      title: "얼마나 여행할 계획인가요??",
-      content: "ㅁㄴㅇㅁㄴㅇㅁㄴ.",
+      title: "당신은 이곳에서 얼마나 머물 예정인가요?",
+      content: "",
       name: "single",
       options: [
         { value: "false", text: "네, 가족들과 함께 살고 있어요" },
@@ -64,7 +64,7 @@ angular.module('puppyfinder', [
     3: {
       index : "slide3",
       subject : "질문03 | 비용",
-      title: "비용은 얼마를 생각하시나요??",
+      title: "당신의 주머니에 쓸 수 있는 돈이 다음과 같이 남아있습니다.",
       content: "뵹뵹",
       name: "active",
       options: [
@@ -76,8 +76,8 @@ angular.module('puppyfinder', [
     4: {
       index : "slide4",
       subject : "질문04 | 생활환경",
-      title: "어떤 기후?",
-      content: "불가피하게 집을 자주 비우신다면 텅 빈 집을 지킬 수 있는 용감한 친구들이 좋겠죠? 그래도 역시 2마리를 함께 키우시는 게 가장 좋다는 점, 잊지 말아 주세요!",
+      title: "당신은 주변을 둘러보았습니다. 어떤 풍경이 보이나요?",
+      content: "",
       name: "absent",
       options: [
         { value: "true", text: "네, 제가 없는 동안 반려견이 집을 잘 지켜줬으면 좋겠어요" },

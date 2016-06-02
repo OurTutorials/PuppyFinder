@@ -5,9 +5,11 @@
 
  <div class="question_card" layout="column" layout-align="center center" style= 'background-color:rgba(255,255,255,0.6)'>
     <div class="in-card" layout="column" layout-align="center">
-            <div class="question-header">여행</div>
-            <h1 class="question-h1">여행</h1>
-            <p>계획 을 어떻게 짜쉴건가여</p>
+            <div class="question-header">{{questions[questionIndex].subject}}</div>
+            <h1 class="question-h1">{{questions[questionIndex].title}}</h1>
+            <span>{{option.text}}</span>
+
+<!--
             <div class = "img">
 
                 <img src = "/assets/food/toronto_food.png">
@@ -16,7 +18,7 @@
                 <img src = "/assets/food/madrid_food.jpg">
                 <img src = "/assets/food/iceland_food.png">
 
-            </div>
+            </div> -->
             <!-- Options in a question should be grouped in a fieldset for form validation -->
       <!--       <fieldset id="{{question.name}}" ng-form="{{question.name}}">
               <label ng-repeat="option in question.options">
@@ -26,7 +28,7 @@
               </label>
             </fieldset> -->
             <!-- Button to scroll(move) to the next question; disabled if this question is not answered -->
-            <button class="md-raised question" ng-if="true" ng-disabled="false" type="button" ng-click="scrollTo($index+1)">다음 질문</md-button>
+            <button class="md-raised question" ng-if="true" ng-disabled="false" type="button" ng-click="nextquestion()">다음 질문</md-button>
             <!-- Submit button for the entire form; disabled if any question is not answered -->
             <input class="md-button md-raised question primary" type="submit" ng-if="true" value="나에게 맞는 반려견 보기" ng-disabled="true" />
      </div>
@@ -36,7 +38,7 @@
     <md-virtual-repeat-container layout="column" ng-style="{'height': (height)+'px'}" md-top-index="topIndex">
       <!-- Angular-maretial repeat elements; md-item-size defines scroll height(position of topIndex) for one item -->
       <div md-virtual-repeat="question in questions" md-item-size="height">
-        <div class="question-wrapper" layout="column" layout-align="center center" ng-style="{'height': (height)+'px', 'background-image': 'url(/assets/dog'+$index+'.jpeg)'}">
+        <div class="question-wrapper" layout="column" layout-align="center center" ng-style="{'height': (height)+'px', 'background-image': 'url(/assets/back'+$index+'.png)'}">
         </div>
         <!-- hr like line to divide questions -->
         <md-divider ng-if="$index!==(questions.length-1)"></md-divider>
