@@ -4,8 +4,10 @@ angular.module('puppyfinder.survey', [])
   /* Get the question list from the factory and insert into this scope */
 	$scope.questions = QuestionList.questions;
 
-
-
+      $scope.questionIndex = 0
+      $scope.nextquestion = function( ){
+        $scope.questionIndex++;
+      }
   /* Container for user's answers to survey */
   $scope.data = {
 		puppyData: {}
