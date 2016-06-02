@@ -5,9 +5,18 @@ angular.module('puppyfinder.survey', [])
 	$scope.questions = QuestionList.questions;
 
       $scope.questionIndex = 0
-      $scope.nextquestion = function( ){
+      $scope.nextquestion = function(index){
         $scope.questionIndex++;
+        $scope.topIndex = index;
       }
+
+
+  //     $scope.scrollTo = function(index) {
+  //   $scope.topIndex = index;
+  // };
+
+
+
   /* Container for user's answers to survey */
   $scope.data = {
 		puppyData: {}
