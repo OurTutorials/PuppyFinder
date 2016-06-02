@@ -1,20 +1,20 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
-var TourSiteSchema = new Schema({
+const TourSiteSchema = new Schema({
   name: String,
   seasonPhotos: [{
+    _id: false,
     month: Number,
     img: String
   }],
-  foodPhotos: [{
-    img: String
-  }],
-  activityPhotos: [{
-    type: String
-  }],
+  foodPhotos: [String],
+  activity: [String],
   flightFee: Number,
   dailyFee: Number,
   description: String,
-  score: Number
 });
+
+module.exports = {
+  TourSite: mongoose.model('TourSite', TourSiteSchema)
+}
