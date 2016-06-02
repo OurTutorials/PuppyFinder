@@ -3,21 +3,28 @@
   <form name="survey" ng-submit="sendQuery()">
     <!-- A angular-material repeat container makes virutal scroll frame for repeated items. See https://material.angularjs.org/latest/demo/virtualRepeat -->
 
- <div class="question_card" layout="column" layout-align="center center" style= 'background-color:rgba(255,255,255,0.6)'>
+ <div class="question_card" layout="column" layout-align="center center" style= 'background-color:rgba(0,0,0,0.6)'>
     <div class="in-card" layout="column" layout-align="center">
             <div class="question-header">{{questions[questionIndex].subject}}</div>
             <h1 class="question-h1">{{questions[questionIndex].title}}</h1>
-            <span>{{option.text}}</span>
-
 <!--
-            <div class = "img">
+                 <div md-virtual-repeat="question in questions">을 하면 모든 question정보를
+                띄워주기 때문에 question에 index값을 주고 누르면 index ++되도록 -->
 
+             <fieldset id="{{questions[questionIndex].name}}" ng-form="{{questions[questionIndex].name}}">
+              <label ng-repeat="option in questions[questionIndex].options">
+                <input ng-model="data.puppyData[questions[questionIndex].name]" type="radio" name="{{questions[questionIndex].name}}" value="{{option.value}}" ng-required="true">
+                <span>{{option.text}}</span>
+                <br />
+              </label>
+            </fieldset>
+
+<!--          <div class = "img">
                 <img src = "/assets/food/toronto_food.png">
                 <img src = "/assets/food/taiwan_food.png">
                 <img src = "/assets/food/nevada_food.png">
                 <img src = "/assets/food/madrid_food.jpg">
                 <img src = "/assets/food/iceland_food.png">
-
             </div> -->
             <!-- Options in a question should be grouped in a fieldset for form validation -->
       <!--       <fieldset id="{{question.name}}" ng-form="{{question.name}}">
@@ -28,7 +35,7 @@
               </label>
             </fieldset> -->
             <!-- Button to scroll(move) to the next question; disabled if this question is not answered -->
-            <button class="md-raised question" ng-if="true" ng-disabled="false" type="button" ng-click="nextquestion()">다음 질문</md-button>
+            <button class="md-raised question" ng-if="true" ng-disabled="false" type="button" ng-click="nextquestion($index+1)">다음 질문</md-button>
             <!-- Submit button for the entire form; disabled if any question is not answered -->
             <input class="md-button md-raised question primary" type="submit" ng-if="true" value="나에게 맞는 반려견 보기" ng-disabled="true" />
      </div>
