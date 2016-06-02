@@ -39,9 +39,9 @@ angular.module('puppyfinder', [
   var question_list = {
     1: {
       index : "slide1",
-      subject : "질문01 | 생활환경",
-      title: "반려견이 생활할 수 있는 야외 공간이 있나요?",
-      content: "평소엔 너무나 사랑스러운 반려견도 제대로 활동할 수 있는 환경을 만들어주지 못한다면 최고의 말썽꾸러기가 되기도 합니다. 반려견을 맞이하기 전에 생활하기에 알맞은 환경을 가지고 있는지 고려해 주세요.",
+      subject : "질문01 | 여행계획",
+      title: "여행 계획이 있으신가요?",
+      content: "ㅇㅁㄴㅇㅁㄴㅇ.",
       name: "inside",
       options: [
         { value: "true", text: "네, 마당이나 뒤뜰에 공간을 마련할 수 있어요" },
@@ -51,9 +51,9 @@ angular.module('puppyfinder', [
 
     2: {
       index : "slide2",
-      subject : "질문02 | 생활환경",
-      title: "가족들과 함께 살고 있나요?",
-      content: "반려견을 혼자 돌보게 되면 함께 보내는 시간에 따라 반려견이 외로워할 수 있기 때문에 가급적이면 2마리를 함께 키우는 것이 좋습니다. 독신이시라면 반려견에 충분한 애정을 주실 수 있는지, 가족분들과 함께 살고 계신다면 다른 가족 분들이 반려견을 함께 돌봐주실 준비가 되어 있는지 생각해 주세요.",
+      subject : "질문02 | 여행계획",
+      title: "얼마나 여행할 계획인가요??",
+      content: "ㅁㄴㅇㅁㄴㅇㅁㄴ.",
       name: "single",
       options: [
         { value: "false", text: "네, 가족들과 함께 살고 있어요" },
@@ -63,9 +63,9 @@ angular.module('puppyfinder', [
 
     3: {
       index : "slide3",
-      subject : "질문03 | 생활환경",
-      title: "운동이나 야외활동, 산책 등을 즐기시는 편인가요?",
-      content: "조깅 등 밖에서 활발하게 활동하는 걸 좋아하신다면 함께 뛰어다닐 수 있는 운동량이 많은 반려견을 만나셔야겠네요! 조용한 실내 활동을 더 좋아하신다면 차분한 반려견을 추천해 드릴게요.",
+      subject : "질문03 | 비용",
+      title: "비용은 얼마를 생각하시나요??",
+      content: "뵹뵹",
       name: "active",
       options: [
         { value: "true", text: "네, 밖에 나가는 걸 좋아하고, 반려견과 함께 운동하고 싶어요" },
@@ -76,7 +76,7 @@ angular.module('puppyfinder', [
     4: {
       index : "slide4",
       subject : "질문04 | 생활환경",
-      title: "집을 자주 비우시는 편인가요?",
+      title: "어떤 기후?",
       content: "불가피하게 집을 자주 비우신다면 텅 빈 집을 지킬 수 있는 용감한 친구들이 좋겠죠? 그래도 역시 2마리를 함께 키우시는 게 가장 좋다는 점, 잊지 말아 주세요!",
       name: "absent",
       options: [
