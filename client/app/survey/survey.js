@@ -5,10 +5,6 @@ angular.module('puppyfinder.survey', [])
 SurveyController.$inject = ['$scope', '$window', '$location', 'QuestionList', 'Result' ,'$compile']
 
 function SurveyController($scope, $window, $location, QuestionList, Result, $compile) {
-  $scope.imageUrl =[];
-  for(var i =0; i<6; i++){
-    $scope.imageUrl.push('/assets/back'+i+'.png')  ;
-  }
       /* Get the question list from the factory and insert into this scope */
       $scope.questions = QuestionList.questions;
           $scope.questionIndex = 0
@@ -26,7 +22,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       $scope.data = {
         puppyData: {}
       };
-      
+
       /* Method to send user's answers to the server and get results */
       $scope.sendQuery = function() {
         Result.getResults($scope.data.puppyData)

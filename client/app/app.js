@@ -34,6 +34,29 @@ angular.module('puppyfinder', [
       templateUrl: 'app/result/result.html',
       controller: 'ResultController'
     })
+    .state({
+      name: 'admin',
+      url: '/admin',
+      templateUrl: 'app/admin/admin.html'
+    })
+    .state({
+      name: 'admin-upload',
+      url: '/admin/upload',
+      templateUrl: 'app/admin/upload.html',
+      controller: 'UploadController'
+    })
+    .state({
+      name: 'admin-update',
+      url: 'admin-update',
+      templateUrl: 'app/admin/update.html',
+      controller: 'UpdateController'
+    })
+    .state({
+      name: 'admin-remove',
+      url: '/admin/remove',
+      templateUrl: 'app/admin/remove.html',
+      controller: 'RemoveController'
+    })
     $urlRouterProvider.otherwise('intro');
 })
 
