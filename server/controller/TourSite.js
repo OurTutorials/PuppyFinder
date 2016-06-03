@@ -33,6 +33,7 @@ module.exports = {
 		const foodPhotosDir = path.join(__dirname, '../..', 'client', 'assets', 'food');
 		const activityPhotosDir = path.join(__dirname, '../..', 'client', 'assets', 'activity');
 		
+		// csv parse option {colums} 해주면 필드 항목 인식 (name, fee 등)
 		const tourSites = parse(fs.readFileSync(tourSitesCSV, 'utf8'),{columns:true});
 
 		console.log("tourSites : " , tourSites );
