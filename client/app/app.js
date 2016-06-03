@@ -73,10 +73,17 @@ angular.module('puppyfinder', [
   var question_list = {
     1: {
       index : "slide1",
+<<<<<<< 3c27268d2e92f0f81895cd1b5b77980edf56c5b8
       subject : "질문01 | month",
       title: "당신이 여행지에 도착했습니다. 지금은 몇월일까요?",
       content:"",
       name: "inside",
+=======
+      subject : "질문01 | 여행계획",
+      title: "당신이 여행지에 도착했습니다. 지금은 몇월일까요?",
+      content:"",
+      type: "inside",
+>>>>>>> fix client-logic
       options: [
         { value: "1", text: "1월" },
         { value: "2", text: "2월" },
@@ -95,6 +102,7 @@ angular.module('puppyfinder', [
 
     2: {
       index : "slide2",
+<<<<<<< 3c27268d2e92f0f81895cd1b5b77980edf56c5b8
       subject : "질문02 | day",
       title: "당신은 이곳에서 얼마나 머물 예정인가요?",
       content: "",
@@ -104,11 +112,23 @@ angular.module('puppyfinder', [
         { value: "true", text: "하루 ~ 일주일" },
         { value: "dafault", text: "일주일 ~ 한달" },
         { value: "dafault", text: "한달 ~ 여섯달" },
+=======
+      subject : "질문02 | 여행계획",
+      title: "당신은 이곳에서 얼마나 머물 예정인가요?",
+      content: "",
+      type: "single",
+      options: [
+        { value: "false", text: "네, 가족들과 함께 살고 있어요" },
+        { value: "true", text: "아니요, 혼자 살고 있지만 충분한 애정과 관심을 줄 수 있어요!" },
+        { value: "dafault", text: "상관없어요" },
+
+>>>>>>> fix client-logic
       ]
     },
 
     3: {
       index : "slide3",
+<<<<<<< 3c27268d2e92f0f81895cd1b5b77980edf56c5b8
       subject : "질문03 | money",
       title: "당신의 주머니(카드)에 쓸 수 있는 돈이 다음과 같이 \n 남아있습니다. 얼마나 사용 가능하신가요?",
       content: "뵹뵹",
@@ -118,12 +138,26 @@ angular.module('puppyfinder', [
         { value: 10, text: "10 ~ 30 만원" },
         { value: 30, text: "30 ~ 70 만원" },
         { value: 100, text: "70 ~ 200 만원" },
+=======
+      subject : "질문03 | 비용",
+      title: "당신의 주머니(카드)에 쓸 수 있는 돈이 다음과 같이 \n 남아있습니다. 얼마나 사용 가능하신가요?",
+      content: "뵹뵹",
+      type: "active",
+      options: [
+        { value: 10, text: "10~30 만원" },
+        { value: 30, text: "30~70 만원" },
+        { value: 100, text: "70~200 만원" },
+>>>>>>> fix client-logic
       ]
     },
 
     4: {
+<<<<<<< 3c27268d2e92f0f81895cd1b5b77980edf56c5b8
       index : "slide4",
       subject : "질문04 | season",
+=======
+      subject : "질문04 | 생활환경",
+>>>>>>> fix client-logic
       title: "당신은 주변을 둘러보았습니다. 어떤 풍경이 보이나요?",
       content: "",
       name: "absent",
@@ -151,6 +185,7 @@ angular.module('puppyfinder', [
       ]
     },
 
+<<<<<<< 3c27268d2e92f0f81895cd1b5b77980edf56c5b8
     6: {
       index : "slide6",
       subject : "질문06 | activity",
@@ -161,6 +196,19 @@ angular.module('puppyfinder', [
         { value: "true", text: "멈춤" },
         { value: "false", text: "움직" },
         { value: "dafault", text: "천천" },
+=======
+    5: {
+      index : "slide5",
+      subject : "질문05 | 건강",
+      title: "배가고파 음식점에 들어왔습니다. 음식을 주문해 주세요.",
+      content: "",
+      type: "allergic",
+      options: [
+        { value: "true", text: "네, 털이 적게 날리면 좋겠어요" },
+        { value: "false", text: "아니오, 제 기관지는 아주 튼튼해요. 청소는 자주 하면 되죠, 뭐" },
+        { value: "dafault", text: "상관없어요" },
+
+>>>>>>> fix client-logic
       ]
     }
   };

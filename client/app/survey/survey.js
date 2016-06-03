@@ -17,7 +17,7 @@ SurveyController.$inject = ['$scope', '$window', '$location', 'QuestionList', 'R
 
 function SurveyController($scope, $window, $location, QuestionList, Result, $compile, getData) {
 
-
+      // finished
       getData.init()
       .then(res => {
         return res.data;
@@ -33,18 +33,10 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
         for(let key in question) {
           $scope[key] = question[key];
         }
-        if($scope.type ==='season') {
-          $scope.photos = [];
-          for(let tourSite of tourSites){
-            for(let photo of tourSite.seasonPhotos) {
-              if(photo.month === 1) {
-                $scope.photos.push(photo.img);
-              }
-            }
-          }
-        }
       });
 
+      $scope.width = window.innerWidth;
+      $scope.height = window.innerHeight;
       $scope.nextquestion = function() {
         const question = questions[questionIndex];
         for(let key of question) {
@@ -60,19 +52,10 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
           }
         }
 
-
-
         var currentSection = $('.active').attr('id');
-        console.log($("#section0").offset());
-        $('html, body').animate({
-            scrollTop: $("#section1").offset().top
-        }, 1000);
         $scope.questionIndex++;
       }
-      /* Container for user's answers to survey */
-      $scope.data = {
-        puppyData: {}
-      };
+
 
       /* Method to send user's answers to the server and get results */
       $scope.sendQuery = function() {
@@ -87,17 +70,6 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
           });
       };
 
-      /* Default settings for styling */
-      $scope.topIndex = 0;
-      $scope.width = window.innerWidth;
-      $scope.height = window.innerHeight;
-
-      /* Method to move(scroll) to the next question by changing topIndex in the scroll container */
-      $scope.$on('$viewContentLoaded', function() {
-        // Init Features Here
-      });
-
-      //Fullpage-auglar code.
 
       var _this = this;
       this.mainOptions = {
