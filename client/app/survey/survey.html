@@ -1,14 +1,5 @@
 <div id= 'fullpage' full-page options="vm.mainOptions" >
 
-<!-- <div ng-repeat='url in imageUrl'>
-  <div class="section" id="section{{$index}}" style="background-image: url({{url}})" >
-    <div class="intro">
-    <h1>js</h1>
-    <p>Create Beautiful Fullscreen Scrolling Websites</p>
-  </div>
-</div>
-</div>
- -->
 <div class="section" id="section0" style="background-image: url('/assets/background/back0.png')" >
     <div class="intro">
     </div>
@@ -23,7 +14,7 @@
   </div>
 </div>
 
-<div class="section" id="section3" style="background-image: url('/assets/backgrond/back3.png')">
+<div class="section" id="section3" style="background-image: url('/assets/background/back3.png')">
   <div class="intro">
   </div>
 </div>
@@ -111,15 +102,4 @@
      </div>
 </div>
 </form>
-
-    <md-virtual-repeat-container layout="column" ng-style="{'height': (height)+'px'}" md-top-index="topIndex">
-      <!-- Angular-maretial repeat elements; md-item-size defines scroll height(position of topIndex) for one item -->
-      <div md-virtual-repeat="question in questions" md-item-size="height">
-        <div class="question-wrapper" layout="column" layout-align="center center" ng-style="{'height': (height)+'px', 'background-image': 'url(/assets/back'+$index+'.png)'}">
-        </div>
-        <!-- hr like line to divide questions -->
-        <md-divider ng-if="$index!==(questions.length-1)"></md-divider>
-      </div>
-    </md-virtual-repeat-container>
-
 </md-content>
