@@ -71,7 +71,7 @@ div.question-wrapper {
 }
 
 div.in-card {
-  width: 1000px;
+  width: 800px;
 
 
 }
@@ -136,6 +136,11 @@ header a {
   margin-bottom: 14px;
 }
 
+.question-option {
+  color: white;
+  display: inline;
+}
+
 h1.question-h1 {
   font-size: 36px;
 }
@@ -180,5 +185,5 @@ form {
   background-size: cover;
 }
 
-
+}
 

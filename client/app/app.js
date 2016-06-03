@@ -30,11 +30,11 @@ angular.module('puppyfinder', [
     })
     .state({
       name: 'result',
-      url: '/result', 
+      url: '/result',
       templateUrl: 'app/result/result.html',
       controller: 'ResultController'
     })
-    $urlRouterProvider.otherwise('survey');
+    $urlRouterProvider.otherwise('intro');
 })
 
 .controller('AppController', function($window){
@@ -55,8 +55,18 @@ angular.module('puppyfinder', [
       content:"",
       name: "inside",
       options: [
-        { value: "true", text: "네, 마당이나 뒤뜰에 공간을 마련할 수 있어요" },
-        { value: "false", text: "아니오, 아늑한 실내에서 키울 거예요" }
+        { value: "1", text: "1월" },
+        { value: "2", text: "2월" },
+        { value: "3", text: "3월" },
+        { value: "4", text: "4월" },
+        { value: "5", text: "5월" },
+        { value: "6", text: "6월" },
+        { value: "7", text: "7월" },
+        { value: "8", text: "8월" },
+        { value: "9", text: "9월" },
+        { value: "10", text: "10월" },
+        { value: "11", text: "11월" },
+        { value: "12", text: "12월" },
       ]
     },
 
@@ -68,22 +78,22 @@ angular.module('puppyfinder', [
       name: "single",
       options: [
         { value: "false", text: "네, 가족들과 함께 살고 있어요" },
-        { value: "true", text: "아니요, 혼자 살고 있지만 충분한 애정과 관심을 줄 수 있어요!" }
+        { value: "true", text: "아니요, 혼자 살고 있지만 충분한 애정과 관심을 줄 수 있어요!" },
+        { value: "dafault", text: "상관없어요" },
+
       ]
     },
 
     3: {
       index : "slide3",
       subject : "질문03 | 비용",
-      title: "당신의 주머니(카드)에 쓸 수 있는 돈이 다음과 같이 남아있습니다. 얼마나 사용 가능하신가요?",
+      title: "당신의 주머니(카드)에 쓸 수 있는 돈이 다음과 같이 \n 남아있습니다. 얼마나 사용 가능하신가요?",
       content: "뵹뵹",
       name: "active",
       options: [
-        { value: 10, text: "10 만원" },
-        { value: 20, text: "20 만원" },
-        { value: 30, text: "50 만원" },
-        { value: 100, text: "100 만원" },
-        { value: 150, text: "200 만원" },
+        { value: 10, text: "10~30 만원" },
+        { value: 30, text: "30~70 만원" },
+        { value: 100, text: "70~200 만원" },
       ]
     },
 
@@ -95,7 +105,9 @@ angular.module('puppyfinder', [
       name: "absent",
       options: [
         { value: "true", text: "네, 제가 없는 동안 반려견이 집을 잘 지켜줬으면 좋겠어요" },
-        { value: "false", text: "아니오, 집에서 반려견과 많은 시간을 함께 보낼 거예요" }
+        { value: "false", text: "아니오, 집에서 반려견과 많은 시간을 함께 보낼 거예요" },
+        { value: "dafault", text: "상관없어요" },
+
       ]
     },
 
@@ -107,7 +119,9 @@ angular.module('puppyfinder', [
       name: "allergic",
       options: [
         { value: "true", text: "네, 털이 적게 날리면 좋겠어요" },
-        { value: "false", text: "아니오, 제 기관지는 아주 튼튼해요. 청소는 자주 하면 되죠, 뭐" }
+        { value: "false", text: "아니오, 제 기관지는 아주 튼튼해요. 청소는 자주 하면 되죠, 뭐" },
+        { value: "dafault", text: "상관없어요" },
+
       ]
     },
 
