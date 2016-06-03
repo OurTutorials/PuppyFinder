@@ -5,6 +5,7 @@ angular.module('puppyfinder.survey', [])
 SurveyController.$inject = ['$scope', '$window', '$location', 'QuestionList', 'Result' ,'$compile']
 
 function SurveyController($scope, $window, $location, QuestionList, Result, $compile) {
+<<<<<<< b6ec09e50206d1811233f85777cbbe65590a4650
       /* Get the question list from the factory and insert into this scope */
       $scope.questions = QuestionList.questions;
           $scope.questionIndex = 0
@@ -38,31 +39,32 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
 
       /* Default settings for styling */
       $scope.topIndex = 0;
+=======
+        /* Get the question list from the factory and insert into this scope */
+    $scope.questions = QuestionList.questions;
+    $scope.questionIndex = 0
+    $scope.nextquestion = function(index){
+    var currentSection = $('.active').attr('id');
+    var difference = $('#section1').offset().top-$('#section0').offset().top;
+      $scope.questionIndex++;
+    }
+        
+>>>>>>> fullpage application
       $scope.width = window.innerWidth;
       $scope.height = window.innerHeight;
 
-      /* Method to move(scroll) to the next question by changing topIndex in the scroll container */
-      $scope.$on('$viewContentLoaded', function() {
-        // Init Features Here
-      });
-
+      
       //Fullpage-auglar code.
 
       var _this = this;
       this.mainOptions = {
-        // anchors: ['survey/#firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+        anchors: ['1', '2', '3', '4', '5', '6'],
         menu: '#menu',
-        lockAnchors: true,
-        onLeave: function(index, nextIndex, direction){
-          console.log('hi');
-        },
+        lockAnchors: false,
         navigation: true
       };
-
-      this.moog = function(merg){ console.log(merg); };
+      $scope.options = this.mainOptions
 
 
       // $('#myfull').attr('full-page options',"vm.mainOptions")
-
-
 }
