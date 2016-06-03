@@ -47,11 +47,19 @@
             <div class="question-header">{{questions[questionIndex].subject}}</div>
             <h1 class="question-h1">{{questions[questionIndex].title}}</h1>
              <fieldset id="{{questions[questionIndex].name}}" ng-form="{{questions[questionIndex].name}}">
-          <div>
+          <div class="list">
           <form ng-submit="submit()" ng-controller="AppCtrl" class="bidi" ng-cloak>
               <label ng-repeat="option in questions[questionIndex].options">
+<<<<<<< fd180ab2ccc0ccc71d010cd7d2ad9a0face14408
                 <md-radio-group layout="row">
                 <md-radio-button class="md-primary">{{option.text}}</md-radio-button>
+=======
+                <!-- <input ng-model="data.puppyData[questions[questionIndex].name]"  name="{{questions[questionIndex].name}}" value="{{option.value}}" ng-required="true"> -->
+                <md-radio-group layout="row" ng-model="questions.options">
+                <md-radio-button class="md-primary"  ng-value="{{$index}}" >{{option.text}}</md-radio-button>
+                </md-radio-gruop>
+
+>>>>>>> shit
                 <br />
               </label>
           </form>

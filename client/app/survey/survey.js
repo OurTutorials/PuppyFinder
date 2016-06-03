@@ -9,7 +9,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
   $scope.height = window.innerHeight;
   $scope.questions = QuestionList.questions;
   $scope.questionIndex = 0;
-  $scope.nextquestion = function(index){ 
+  $scope.nextquestion = function(index){
   //this function change contents inside questionbox.
     var currentSection = $('.active').attr('id');
     $scope.questionIndex++;
@@ -24,4 +24,5 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     navigation: true
   };
   $scope.options = this.mainOptions
+
 }
