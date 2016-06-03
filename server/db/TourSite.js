@@ -15,6 +15,8 @@ const TourSiteSchema = new Schema({
   description: String,
 });
 
+const TourSite = mongoose.model('TourSite', TourSiteSchema);
+
 module.exports = {
-  TourSite: mongoose.model('TourSite', TourSiteSchema)
+  TourSite: TourSite
 }
