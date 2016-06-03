@@ -72,11 +72,10 @@ angular.module('puppyfinder', [
   /* Question data is in object for maintenance */
   var question_list = {
     1: {
-      index : "slide1",
-      subject : "질문01 | month",
+      subject : "질문01 | 여행계획",
       title: "당신이 여행지에 도착했습니다. 지금은 몇월일까요?",
       content:"",
-      name: "inside",
+      type: "inside",
       options: [
         { value: "1", text: "1월" },
         { value: "2", text: "2월" },
@@ -94,50 +93,37 @@ angular.module('puppyfinder', [
     },
 
     2: {
-      index : "slide2",
-      subject : "질문02 | day",
+      subject : "질문02 | 여행계획",
       title: "당신은 이곳에서 얼마나 머물 예정인가요?",
       content: "",
-      name: "single",
+      type: "single",
       options: [
-        { value: "false", text: "하루" },
-        { value: "true", text: "하루 ~ 일주일" },
-        { value: "dafault", text: "일주일 ~ 한달" },
-        { value: "dafault", text: "한달 ~ 여섯달" },
+        { value: "false", text: "네, 가족들과 함께 살고 있어요" },
+        { value: "true", text: "아니요, 혼자 살고 있지만 충분한 애정과 관심을 줄 수 있어요!" },
+        { value: "dafault", text: "상관없어요" },
       ]
     },
 
     3: {
-      index : "slide3",
-      subject : "질문03 | money",
+      subject : "질문03 | 비용",
       title: "당신의 주머니(카드)에 쓸 수 있는 돈이 다음과 같이 \n 남아있습니다. 얼마나 사용 가능하신가요?",
       content: "뵹뵹",
-      name: "active",
+      type: "active",
       options: [
-      { value: 10, text: "1 ~ 10 만원" },
-        { value: 10, text: "10 ~ 30 만원" },
-        { value: 30, text: "30 ~ 70 만원" },
-        { value: 100, text: "70 ~ 200 만원" },
+        { value: 10, text: "10~30 만원" },
+        { value: 30, text: "30~70 만원" },
+        { value: 100, text: "70~200 만원" },
       ]
     },
 
     4: {
-      index : "slide4",
-      subject : "질문04 | season",
+      subject : "질문04 | 생활환경",
       title: "당신은 주변을 둘러보았습니다. 어떤 풍경이 보이나요?",
       content: "",
-      name: "absent",
-      options: [
-        { value: "true", text: "봄" },
-        { value: "false", text: "여름" },
-        { value: "dafault", text: "가을" },
-        { value: "dafault", text: "겨울" },
-
-      ]
+      type: "season"
     },
 
     5: {
-      index : "slide5",
       subject : "질문05 | food",
       title: "배가고파 음식점에 들어왔습니다. 음식을 주문해 주세요.",
       content: "",
@@ -152,7 +138,6 @@ angular.module('puppyfinder', [
     },
 
     6: {
-      index : "slide6",
       subject : "질문06 | activity",
       title: "배도부르고 관광을 하려고 합니다. 어떤 활동을 하고싶나요?",
       content: "",
@@ -162,24 +147,7 @@ angular.module('puppyfinder', [
         { value: "false", text: "움직" },
         { value: "dafault", text: "천천" },
       ]
-    },
-
-    // 7: {
-    //   index : "slide7",
-    //   subject : "질문07 | 입양",
-    //   title: "입양 초기에 필요한 비용을 얼마로 예상하고 계신가요?",
-    //   content: "반려견을 입양하는 데에는 생각보다 많은 초기 비용이 필요합니다. 직접적인 입양 비용 뿐만 아니라 초기에 반려견의 건강을 위해 받아야 하는 예방 접종비, 그리고 생활에 필요한 환경을 갖추기 위해 구입해야 하는 물품들의 비용까지 고려해야 합니다. 최대 얼마 정도의 입양 비용을 예상하고 계신가요?",
-    //   name: "initialCost",
-    //   options: [
-    //     { value: 10, text: "10 만원" },
-    //     { value: 20, text: "20 만원" },
-    //     { value: 30, text: "30 만원" },
-    //     { value: 40, text: "40 만원" },
-    //     { value: 50, text: "50 만원" },
-    //     { value: 100, text: "100 만원" },
-    //     { value: 150, text: "150 만원" },
-    //   ]
-    // },
+    }
   };
 
   for (var question in question_list) {
@@ -257,7 +225,21 @@ angular.module('puppyfinder', [
     getDaum: getDaum,
   });
 })
+.factory('getData', function($http) {
+  //get intial data from server.
+  var init = () => $http({
+    method:'GET',
+    url: '/data',
+  })
+  .then(res => {
+    return res
+  })
+  .catch(e => console.log(e))
 
+  return({
+    init
+  })
+})
 /* Method to request for a survey result */
 .factory('Result', function($http){
   var getResults = function(data){

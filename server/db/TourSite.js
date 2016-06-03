@@ -15,8 +15,5 @@ const TourSiteSchema = new Schema({
   description: String,
 });
 
-const TourSite = mongoose.model('TourSite', TourSiteSchema);
+export default mongoose.model('TourSite', TourSiteSchema);
 
-module.exports = {
-  TourSite: TourSite
-}

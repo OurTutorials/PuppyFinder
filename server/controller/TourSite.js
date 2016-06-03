@@ -2,10 +2,10 @@ import mongoose from 'mongoose';
 import fs from 'fs';
 import parse from 'csv-parse/lib/sync';
 import path from 'path';
-import {TourSite} from '../db/Toursite';
+import TourSite from '../db/Toursite';
 const db = 'mongodb://localhost/Tour';
 
-module.exports = {
+export default {
 	init: () => {
 		const connect = () => {
 			mongoose.connect(db, (err) => {
@@ -96,7 +96,7 @@ module.exports = {
 			});
 		}
 	},
-	send: () => {
+	send: (req, res) => {
 		TourSite.find()
 		.exec(function(err, toursite) {
 		  if(err) {
