@@ -57,7 +57,7 @@ angular.module('puppyfinder', [
       templateUrl: 'app/admin/remove.html',
       controller: 'RemoveController'
     })
-    $urlRouterProvider.otherwise('intro');
+    $urlRouterProvider.otherwise('survey');
 })
 
 .controller('AppController', function($window){
