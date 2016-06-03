@@ -1,4 +1,4 @@
-
+{
   "name": "client",
   "version": "0.0.0",
   "homepage": "https://github.com/codearena153/puppyfinder",
@@ -23,5 +23,9 @@
     "normalize-css": "*",
     "angular-ui-router": "^0.3.0",
     "angular-fullpage.js": "^0.2.1"
+  },
+  "resolutions": {
+    "angular": "~1.4.4",
+    "fullpage.js": "~2.7.7"
   }
 }

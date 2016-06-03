@@ -3,17 +3,13 @@ import bodyParser from 'body-parser';
 import url from 'url';
 import path from 'path';
 import request from 'request';
-import {
-  init
-}
-from './controller/TourSite';
-import TourSite from './db/TourSite'
+import TourSiteController from './controller/TourSite';
 
 const app = express();
 app.set('port', process.env.PORT || 8888);
 
 /* Initialize DB */
-init();
+TourSiteController.init();
 
 // Static files load
 app.use(express.static(__dirname + '/../client'));
@@ -29,35 +25,9 @@ app.use(bodyParser.urlencoded({
  * Routing Setup
  * Serves static files
  */
-app.get('/admin', function(req, res) {
-  res.sendFile(__dirname + '/admin/admin.html');
-});
-
-app.get('/upload', function(req, res) {
-  res.sendFile(__dirname + '/admin/upload.html');
-});
-
-app.get('/update', function(req, res) {
-  res.sendFile(__dirname + '/admin/update.html');
-});
-
-app.get('/remove', function(req, res) {
-  res.sendFile(__dirname + '/admin/remove.html');
-});
-
-app.get('/stat', function(req, res) {
-  res.sendFile(__dirname + '/admin/stat.html');
-});
 
 app.get('/', function(req, res) {
-  TourSite.find()
-  .exec(function(err, toursite) {
-    if(err) {
-      res.send('Err "/" get request: ',err);
-    } else {
-      res.send(toursite);
-    }
-  });
+  TourSiteController.send();
 });
 
 app.listen(app.get('port'), function() {

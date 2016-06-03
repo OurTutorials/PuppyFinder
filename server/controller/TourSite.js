@@ -28,11 +28,11 @@ module.exports = {
 			}
 		});
 
-		const tourSitesCSV = path.join(__dirname, 'TourSite.csv');
+		const tourSitesCSV = path.join(__dirname, '../config', 'TourSite.csv');
 		const seasonPhotosDir = path.join(__dirname, '../..', 'client', 'assets', 'season');
 		const foodPhotosDir = path.join(__dirname, '../..', 'client', 'assets', 'food');
 		const activityPhotosDir = path.join(__dirname, '../..', 'client', 'assets', 'activity');
-		
+
 		// csv parse option {colums} 해주면 필드 항목 인식 (name, fee 등)
 		const tourSites = parse(fs.readFileSync(tourSitesCSV, 'utf8'),{columns:true});
 
@@ -95,7 +95,15 @@ module.exports = {
 				console.log(`Saved TourSite ${tourSite.name}`);
 			});
 		}
+	},
+	send: () => {
+		TourSite.find()
+		.exec(function(err, toursite) {
+		  if(err) {
+		    res.send('Err "/" get request: ',err);
+		  } else {
+		    res.send(toursite);
+		  }
+		});
 	}
 }
-
-module.exports.init();

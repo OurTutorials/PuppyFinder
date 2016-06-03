@@ -34,7 +34,30 @@ angular.module('puppyfinder', [
       templateUrl: 'app/result/result.html',
       controller: 'ResultController'
     })
-    $urlRouterProvider.otherwise('intro');
+    .state({
+      name: 'admin',
+      url: '/admin',
+      templateUrl: 'app/admin/admin.html'
+    })
+    .state({
+      name: 'admin-upload',
+      url: '/admin/upload',
+      templateUrl: 'app/admin/upload.html',
+      controller: 'UploadController'
+    })
+    .state({
+      name: 'admin-update',
+      url: 'admin-update',
+      templateUrl: 'app/admin/update.html',
+      controller: 'UpdateController'
+    })
+    .state({
+      name: 'admin-remove',
+      url: '/admin/remove',
+      templateUrl: 'app/admin/remove.html',
+      controller: 'RemoveController'
+    })
+    $urlRouterProvider.otherwise('survey');
 })
 
 .controller('AppController', function($window){
@@ -50,7 +73,7 @@ angular.module('puppyfinder', [
   var question_list = {
     1: {
       index : "slide1",
-      subject : "질문01 | 여행계획",
+      subject : "질문01 | month",
       title: "당신이 여행지에 도착했습니다. 지금은 몇월일까요?",
       content:"",
       name: "inside",
@@ -72,69 +95,72 @@ angular.module('puppyfinder', [
 
     2: {
       index : "slide2",
-      subject : "질문02 | 여행계획",
+      subject : "질문02 | day",
       title: "당신은 이곳에서 얼마나 머물 예정인가요?",
       content: "",
       name: "single",
       options: [
-        { value: "false", text: "네, 가족들과 함께 살고 있어요" },
-        { value: "true", text: "아니요, 혼자 살고 있지만 충분한 애정과 관심을 줄 수 있어요!" },
-        { value: "dafault", text: "상관없어요" },
-
+        { value: "false", text: "하루" },
+        { value: "true", text: "하루 ~ 일주일" },
+        { value: "dafault", text: "일주일 ~ 한달" },
+        { value: "dafault", text: "한달 ~ 여섯달" },
       ]
     },
 
     3: {
       index : "slide3",
-      subject : "질문03 | 비용",
+      subject : "질문03 | money",
       title: "당신의 주머니(카드)에 쓸 수 있는 돈이 다음과 같이 \n 남아있습니다. 얼마나 사용 가능하신가요?",
       content: "뵹뵹",
       name: "active",
       options: [
-        { value: 10, text: "10~30 만원" },
-        { value: 30, text: "30~70 만원" },
-        { value: 100, text: "70~200 만원" },
+      { value: 10, text: "1 ~ 10 만원" },
+        { value: 10, text: "10 ~ 30 만원" },
+        { value: 30, text: "30 ~ 70 만원" },
+        { value: 100, text: "70 ~ 200 만원" },
       ]
     },
 
     4: {
       index : "slide4",
-      subject : "질문04 | 생활환경",
+      subject : "질문04 | season",
       title: "당신은 주변을 둘러보았습니다. 어떤 풍경이 보이나요?",
       content: "",
       name: "absent",
       options: [
-        { value: "true", text: "네, 제가 없는 동안 반려견이 집을 잘 지켜줬으면 좋겠어요" },
-        { value: "false", text: "아니오, 집에서 반려견과 많은 시간을 함께 보낼 거예요" },
-        { value: "dafault", text: "상관없어요" },
+        { value: "true", text: "봄" },
+        { value: "false", text: "여름" },
+        { value: "dafault", text: "가을" },
+        { value: "dafault", text: "겨울" },
 
       ]
     },
 
     5: {
       index : "slide5",
-      subject : "질문05 | 건강",
+      subject : "질문05 | food",
       title: "배가고파 음식점에 들어왔습니다. 음식을 주문해 주세요.",
       content: "",
       name: "allergic",
       options: [
-        { value: "true", text: "네, 털이 적게 날리면 좋겠어요" },
-        { value: "false", text: "아니오, 제 기관지는 아주 튼튼해요. 청소는 자주 하면 되죠, 뭐" },
-        { value: "dafault", text: "상관없어요" },
+        { value: "true", text: "한식" },
+        { value: "false", text: "중식" },
+        { value: "dafault", text: "일식" },
+        { value: "dafault", text: "양식" },
 
       ]
     },
 
     6: {
       index : "slide6",
-      subject : "질문06 | 성격",
+      subject : "질문06 | activity",
       title: "배도부르고 관광을 하려고 합니다. 어떤 활동을 하고싶나요?",
       content: "",
       name: "friendly",
       options: [
-        { value: "true", text: "활발하고 사교적인 성격의 반려견이 좋아요!" },
-        { value: "false", text: "조용하고 차분한 성격의 반려견이 좋겠어요" },
-        { value: "dafault", text: "상관없어요" },
+        { value: "true", text: "멈춤" },
+        { value: "false", text: "움직" },
+        { value: "dafault", text: "천천" },
       ]
     },
 

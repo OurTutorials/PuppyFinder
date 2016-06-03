@@ -7,23 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 위에 3개의 태그는 반드시 head 태그의 처음에 위치해야함 -->
     <title>DDunara</title>
-    <!-- <link href="styles/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="lib/normalize-css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="lib/angular-material/angular-material.css" />
     <link rel="stylesheet" type="text/css" href="styles/SpoqaHanSans.css" />
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <link rel="stylesheet" type="text/css" href="lib/fullpage.js/jquery.fullPage.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="lib/fullpage.js/jquery.fullPage.css" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="app/javascript.fullPage.css" />
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+
 </head>
-
-
-
-
 <body ng-controller="AppController">
     <header>
         <ul>
-            <li><a href="#/intro"><img src="/assets/logo.png"/></a></li>
+            <li><a href="#/intro"><img src="/assets/etc/logo.png"/></a></li>
         </ul>
     </header>
     <main ui-view></main>
@@ -34,17 +31,22 @@
     <script src="lib/angular-animate/angular-animate.js"></script>
     <script src="lib/angular-material/angular-material.js"></script>
     <script type="text/javascript" src="lib/fullpage.js/jquery.fullPage.js"></script>
-    <!-- <script src="styles/bootstrap.min.js"></script> -->
-  
-    <script src="/lib/angular-ui-router/release/angular-ui-router.js"></script>  
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="/lib/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="lib/angular-fullpage.js/angular-fullpage.min.js"></script>
     <!-- <script src="lib/angular-base64/angular-base64.js"></script> -->
+    <!-- admin -->
+    <script src="app/admin/upload.js"></script>
+    <script src="app/admin/update.js"></script>
+    <script src="app/admin/remove.js"></script>
+
     <script src="app/intro/intro.js"></script>
     <script src="app/survey/survey.js"></script>
     <script src="app/result/result.js"></script>
     <script src="app/app.js"></script>
 
-   
+
 </body>
 
 </html>
