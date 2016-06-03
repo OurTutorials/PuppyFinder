@@ -1,4 +1,4 @@
-{
+
   "name": "client",
   "version": "0.0.0",
   "homepage": "https://github.com/codearena153/puppyfinder",
@@ -20,6 +20,8 @@
     "bootstrap": "^3.3.6",
     "fullpage.js": "^2.8.0",
     "angular-material": "^1.0.9",
-    "normalize-css": "*"
+    "normalize-css": "*",
+    "angular-ui-router": "^0.3.0",
+    "angular-fullpage.js": "^0.2.1"
   }
 }
