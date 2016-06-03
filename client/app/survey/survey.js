@@ -30,6 +30,8 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
         }
       });
 
+      
+
       $scope.width = window.innerWidth;
       $scope.height = window.innerHeight;
       $scope.nextquestion = function() {
