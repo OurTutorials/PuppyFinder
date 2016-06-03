@@ -1,3 +1,10 @@
+<!-- <ul id="menu" ng-click="vm.moog('asd')" >
+  <li data-menuanchor="firstPage"><a>First slide</a></li>
+  <li data-menuanchor="secondPage"><a>Second slide</a></li>
+  <li data-menuanchor="3rdPage"><a>Third slide</a></li>
+  <li data-menuanchor="4thpage"><a>Fourth slide</a></li>
+</ul> -->
+
 <div id= 'fullpage' full-page options="vm.mainOptions" >
 
 <div class="section" id="section0" style="background-image: url('/assets/background/back0.png')" >
@@ -31,72 +38,34 @@
 
 </div>
 
-<!--
-
-
-  <div class="section" id="section10" >
-      <div class="slide">
-        <div class="intro">
-          <img src="images/slider.png" alt="slider" /> <br/>
-          <button ng-click="vm.addSlide();">Click Me to Add another Slide!</button>
-        </div>
-      </div>
-  </div> -->
-
-<!--
-  <div class="section" id="section12">
-    <div class="intro">
-      <h1 ng-click="vm.moog('sss')" >Example</h1>
-      <p>HTML markup example to define 4 sections.</p>
-      <img src="images/example2.png" alt="example" />
-    </div>
-  </div>
-
-
-  <div class="section" id="section13">
-    <div class="intro">
-      <h1>Working On Tablets</h1>
-      <p>
-        Designed to fit to different screen sizes as well as tablet and mobile devices.
-        <br /><br /><br /><br /><br /><br />
-      </p>
-    </div>
-    <img src="images/tablets.png" alt="tablets" />
-  </div> -->
-
 <md-content>
 
   <form name="survey" ng-submit="sendQuery()">
-    <!-- A angular-material repeat container makes virutal scroll frame for repeated items. See https://material.angularjs.org/latest/demo/virtualRepeat -->
 
  <div class="question_card" layout="column" layout-align="center center" style= 'background-color:rgba(0,0,0,0.6)'>
     <div class="in-card" layout="column" layout-align="center">
             <div class="question-header">{{questions[questionIndex].subject}}</div>
             <h1 class="question-h1">{{questions[questionIndex].title}}</h1>
-
              <fieldset id="{{questions[questionIndex].name}}" ng-form="{{questions[questionIndex].name}}">
           <div>
           <form ng-submit="submit()" ng-controller="AppCtrl" class="bidi" ng-cloak>
-
               <label ng-repeat="option in questions[questionIndex].options">
-                <!-- <input ng-model="data.puppyData[questions[questionIndex].name]"  name="{{questions[questionIndex].name}}" value="{{option.value}}" ng-required="true"> -->
                 <md-radio-group layout="row">
                 <md-radio-button class="md-primary">{{option.text}}</md-radio-button>
-                 <md-radio-button ng-repeat="d in radioData"
-                 </md-radio-group>
-
-                         ng-value="d.value"
-                         ng-disabled=" d.isDisabled "
-                         ng-class="{'md-align-top-left': $index==1}" >
                 <br />
               </label>
           </form>
           </div>
+          </fieldset>
 
-
-            </fieldset>
-
-            <button class="md-raised question" ng-if="true" ng-disabled="false" type="button" ng-click="nextquestion()">다음 질문</md-button>
+           <ul id="menu">
+             <li data-menuanchor="{{questionIndex+1}}">
+               <a>
+                 <button class="md-raised question" ng-if="true" ng-disabled="false" type="button" ng-click="nextquestion()">다음 질문
+                 </button>
+               </a>
+             </li>
+           </ul>
             <!-- Submit button for the entire form; disabled if any question is not answered -->
             <input class="md-button md-raised question primary" type="submit" ng-if="true" value="나에게 맞는 반려견 보기" ng-disabled="true" />
      </div>
