@@ -2,16 +2,25 @@ angular.module('puppyfinder.survey', [])
 
 .controller('SurveyController', SurveyController);
 
-SurveyController.$inject = ['$scope', '$window', '$location', 'QuestionList', 'Result' ,'$compile', 'getData']
 
-// function SurveyController($scope, $window, $location, QuestionList, Result, $compile) {
-//   $scope.width = window.innerWidth;
-//   $scope.height = window.innerHeight;
-//   $scope.nextquestion = function(index){
-//   //this function change contents inside questionbox.
-//     var currentSection = $('.active').attr('id');
-//     $scope.questionIndex++;
-//   }
+SurveyController.$inject = ['$scope', '$window', '$location', 'QuestionList', 'Result' ,'$compile']
+
+function SurveyController($scope, $window, $location, QuestionList, Result, $compile) {
+  $scope.width = window.innerWidth;
+  $scope.height = window.innerHeight;
+  $scope.questions = QuestionList.questions;
+  $scope.questionIndex = 0;
+  $scope.nextquestion = function(index){
+  //this function change contents inside questionbox.
+    var currentSection = $('.active').attr('id');
+    if($scope.questionIndex<5){
+      $scope.questionIndex++;
+    }
+    if($scope.questionIndex === 5){
+      $('.md-button').css('display','in-line');
+      $('#menu').css('display','none')
+    }
+  }
 
   //set options for fullpage.js
 
