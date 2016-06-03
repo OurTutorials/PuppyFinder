@@ -25,25 +25,6 @@ app.use(bodyParser.urlencoded({
  * Routing Setup
  * Serves static files
  */
-app.get('/admin', function(req, res) {
-  res.sendFile(__dirname + '/admin/admin.html');
-});
-
-app.get('/upload', function(req, res) {
-  res.sendFile(__dirname + '/admin/upload.html');
-});
-
-app.get('/update', function(req, res) {
-  res.sendFile(__dirname + '/admin/update.html');
-});
-
-app.get('/remove', function(req, res) {
-  res.sendFile(__dirname + '/admin/remove.html');
-});
-
-app.get('/stat', function(req, res) {
-  res.sendFile(__dirname + '/admin/stat.html');
-});
 
 app.get('/', function(req, res) {
   TourSiteController.send();
