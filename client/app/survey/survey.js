@@ -17,18 +17,23 @@ SurveyController.$inject = ['$scope', '$window', '$location', 'QuestionList', 'R
 
 function SurveyController($scope, $window, $location, QuestionList, Result, $compile, getData) {
 
+      let questionIndex=0;
+      let questions;
+      let question;
+      let tourSites;
+
       // finished
       getData.init()
       .then(res => {
-        return res.data;
-      })
-      .then((tourSites) => {
-        let questions = QuestionList.questions;
-        let questionIndex = 0;
-        let question = questions[questionIndex];
+        tourSites = res.data;
+
+        console.log(tourSites);
+
+        questions = QuestionList.questions;
+        question = questions[questionIndex];
 
         $scope.questions = questions;
-        $scope.questionIndex = questionIndex;
+        $scope.questionIndex = 0;
 
         for(let key in question) {
           $scope[key] = question[key];
@@ -38,22 +43,24 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       $scope.width = window.innerWidth;
       $scope.height = window.innerHeight;
       $scope.nextquestion = function() {
-        const question = questions[questionIndex];
-        for(let key of question) {
+        $scope.questionIndex++;
+        const question = questions[$scope.questionIndex];
+        for(let key in question) {
           $scope[key] = question[key];
         }
 
         if($scope.type ==='season') {
           $scope.photos = [];
-          for(let photo of tourSites.seasonPhotos) {
-            if(photo.month === $scope.answer.slice(0,-1)) {
-              $scope.photos.push(photo.img);
+          for(tourSite of tourSites) {
+            for(let photo in tourSite.seasonPhotos) {
+              if(photo.month === $scope.answer.slice(0,-1)) {
+                $scope.photos.push(photo.img);
+              }
             }
           }
         }
 
         var currentSection = $('.active').attr('id');
-        $scope.questionIndex++;
       }
 
 
