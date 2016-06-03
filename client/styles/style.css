@@ -189,7 +189,6 @@ form {
 }
 
 .section {
-
   background:no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -197,5 +196,7 @@ form {
   background-size: cover;
 }
 
+.list{
+  color:white;
 }
 

@@ -65,7 +65,7 @@
 
               <label ng-repeat="option in options" ng-if="!photos">
                 <md-radio-group layout="row">
-                <input class="md-primary" ng-model="answer" type="radio"/>{{option.text}}
+                <input class="md-primary" ng-model="questions.option" type="radio"/>{{option.text}}
                 <br />
               </label>
               <label ng-repeat="photo in photos" ng-if="photos">
@@ -76,17 +76,16 @@
           </form>
           </div>
           </fieldset>
-
            <ul id="menu">
              <li data-menuanchor="{{questionIndex+1}}">
                <a>
-                 <button class="md-raised question" ng-if="true" ng-disabled="false" type="button" ng-click="nextquestion()">다음 질문
+                 <button class="md-raised question" ng-if="true" ng-disabled="true" type="button" ng-click="nextquestion()">다음 질문
                  </button>
                </a>
              </li>
            </ul>
             <!-- Submit button for the entire form; disabled if any question is not answered -->
-            <input class="md-button md-raised question primary" type="submit" ng-if="true" value="나에게 맞는 반려견 보기" ng-disabled="true" />
+            <input class="md-button md-raised question primary" type="submit" ng-if="true" value="나에게 맞는 반려견 보기" ng-disabled="true" style="display:none"/>
      </div>
 </div>
 </form>
