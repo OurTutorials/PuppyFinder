@@ -162,24 +162,7 @@ angular.module('puppyfinder', [
         { value: "false", text: "움직" },
         { value: "dafault", text: "천천" },
       ]
-    },
-
-    // 7: {
-    //   index : "slide7",
-    //   subject : "질문07 | 입양",
-    //   title: "입양 초기에 필요한 비용을 얼마로 예상하고 계신가요?",
-    //   content: "반려견을 입양하는 데에는 생각보다 많은 초기 비용이 필요합니다. 직접적인 입양 비용 뿐만 아니라 초기에 반려견의 건강을 위해 받아야 하는 예방 접종비, 그리고 생활에 필요한 환경을 갖추기 위해 구입해야 하는 물품들의 비용까지 고려해야 합니다. 최대 얼마 정도의 입양 비용을 예상하고 계신가요?",
-    //   name: "initialCost",
-    //   options: [
-    //     { value: 10, text: "10 만원" },
-    //     { value: 20, text: "20 만원" },
-    //     { value: 30, text: "30 만원" },
-    //     { value: 40, text: "40 만원" },
-    //     { value: 50, text: "50 만원" },
-    //     { value: 100, text: "100 만원" },
-    //     { value: 150, text: "150 만원" },
-    //   ]
-    // },
+    }
   };
 
   for (var question in question_list) {
@@ -257,7 +240,21 @@ angular.module('puppyfinder', [
     getDaum: getDaum,
   });
 })
+.factory('getData', function($http) {
+  //get intial data from server.
+  var init = () => $http({
+    method:'GET',
+    url: '/data',
+  })
+  .then(res => {
+    return res
+  })
+  .catch(e => console.log(e))
 
+  return({
+    init
+  })
+})
 /* Method to request for a survey result */
 .factory('Result', function($http){
   var getResults = function(data){

@@ -13,7 +13,6 @@ TourSiteController.init();
 
 // Static files load
 app.use(express.static(__dirname + '/../client'));
-app.use(express.static(__dirname + '/admin'));
 
 /* Handle request.body, request.params */
 app.use(bodyParser.json());
@@ -26,9 +25,7 @@ app.use(bodyParser.urlencoded({
  * Serves static files
  */
 
-app.get('/', function(req, res) {
-  TourSiteController.send();
-});
+app.get('/data', TourSiteController.send);
 
 app.listen(app.get('port'), function() {
   console.log("Express started on http://localhost:" +
