@@ -115,6 +115,7 @@ header a {
 }
 
 .md-raised {
+  -webkit-transition: background-color 1s;
   margin: 0;
 }
 
@@ -198,5 +199,9 @@ form {
 
 .list{
   color:white;
+}
+
+button[disabled] {
+    background-color:rgba(0,0,0,0.3) !important;
 }
 
