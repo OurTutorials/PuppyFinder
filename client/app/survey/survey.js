@@ -41,7 +41,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     });
 
   $scope.hoverIn = function($event){
-    $('#section'+$scope.questionIndex).css('-webkit-filter','blur(3px)')
+    $('#section'+$scope.questionIndex).css('-webkit-filter','blur(5px)')
     // $('.photobox img').css('-webkit-filter','blur(10px)')
   }
   $scope.hoverOut = function($event){
