@@ -99,11 +99,11 @@ angular.module('puppyfinder', [
       type: "single",
       options: [
 
-        { value: "false", text: "하루" },
-        { value: "true", text: "하루 ~ 일주일" },
-        { value: "dafault", text: "일주일 ~ 한달" },
-        { value: "dafault", text: "한달 ~ 여섯달" },
-        { value: "dafault", text: "여섯달~" },
+        { value: "false", text: "1일" },
+        { value: "true", text: "1일 ~ 7일" },
+        { value: "dafault", text: "7일~ 30일" },
+        { value: "dafault", text: "30일 ~ 180일" },
+        { value: "dafault", text: "180일 ~" },
 
       ]
     },
@@ -112,7 +112,7 @@ angular.module('puppyfinder', [
 
       index : "slide3",
       subject : "질문03 | money",
-      title: "당신에게 얼마가 있나요?",
+      title: "여행에 얼마를 쓰실 건가요?",
       content: "뵹뵹",
       type: "active",
       options: [
@@ -161,6 +161,7 @@ angular.module('puppyfinder', [
       title: "배도부르고 관광을 하려고 합니다. 어떤 활동을 하고싶나요?",
       content: "",
       name: "friendly",
+      type: "activity",
       options: [
         { value: "true", text: "멈춤" },
         { value: "false", text: "움직" },
