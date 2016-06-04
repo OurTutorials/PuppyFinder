@@ -23,7 +23,8 @@ body {
 
 .maintitle {
   font-size: 53px;
-  line-height: 1.35;
+  line-height: 1;
+  font-weight:bold;
   margin: 0;
   color:white;
 }
@@ -72,7 +73,7 @@ div.question-wrapper {
 
 div.in-card {
   width: 800px;
-  height: 200px;
+  height: 260px;
 
 
 }
@@ -134,16 +135,19 @@ header a {
   margin-top:30px;
   width: 800px;
   height: 46px;
-  background-color: #009688;
+  background-color: #2AE6D6;
   color: white;
   position:absolute;
   bottom: -50px;
 }
+.div.next-question {
+  font-weight: 200px;
+}
 
 .question-header {
-  font-size: 12px;
+  font-size: 13px;
   padding: 0;
-  margin-bottom: 14px;
+  margin-bottom: 79px;
   color:white;
 }
 
@@ -206,6 +210,42 @@ form {
 
 .list{
   color:white;
+}
+
+
+
+fieldset {
+  text-align: center;
+}
+
+
+
+md-radio-group{
+  margin-left: 8px;
+  margin-top: 30px;
+  text-align: center;
+
+}
+
+md-radio-button {
+  color:white;
+  font-size:15px;
+}
+
+md-radio-button .md-on {
+  margin-left: 8px;
+  background-color: #2AE6D6 !important;
+
+
+}
+
+md-radio-button .md-off {
+  margin-left: 8px;
+  border-color: gray;
+}
+
+md-radio-button.md-checked .md-off{
+  border-color: #2AE6D6 !important;
 }
 
 button[disabled] {
