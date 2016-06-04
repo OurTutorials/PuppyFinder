@@ -11,7 +11,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
   $scope.height = window.innerHeight;
   $scope.questions = QuestionList.questions;
   $scope.questionIndex = 0;
-  $scope.answer = [];
+  $scope.answer = {};
 
   let questionIndex=0;
   let questions;
@@ -30,8 +30,6 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     for(let key in question) {
       $scope[key] = question[key];
     }
-
-
     // dummy photodata for css set
     // $scope.photos = [];
     // for(let tour of tourSites ) {
@@ -40,15 +38,13 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     //         $scope.photos.push(ph.img)
     //       }
     //     }
-    // } 
+    // }
 
     // if($scope.photos.length>1){
     //   console.log($scope.photos.length )
     //   $('.question_card').removeClass('nophoto');
     //   $('.question_card').addClass('photo');
     // }
-
-
   });
 
 
@@ -56,8 +52,11 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
 
   //this function make 'next' button able when radio is chosen.(다음 질문 버튼을 able하게 하는 함수.)
   $scope.ableButton = function(value) {
-      $scope.answer[$scope.questionIndex] = value;
+      $scope.answer[$scope.type] = value;
       $('button').removeAttr('disabled');
+      if($scope.questionIndex===5){
+        $('.md-button').removeAttr('disabled');
+      }
   }
 
 
@@ -70,13 +69,19 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     if($scope.questionIndex<5){
       $scope.questionIndex++;
       $('button').attr('disabled','true');
+      if($scope.questionIndex===5) {
+        $('button').css('display','none');
+        $('.md-button').css('display','');
+        $('#menu').css('display','none');
+        // $('.md-button').removeAttr('disabled');
+      }
     }else{
+
     //change button when last question.
-      $('.md-button').css('display','');
-      $('.md-button').removeAttr('disabled');
-      $('#menu').css('display','none');
+
+
     }
-   
+
     const question = questions[$scope.questionIndex];
     for(let key in question) {
       $scope[key] = question[key];
@@ -86,7 +91,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       $scope.photos = [];
       for(let tourSite of tourSites ) {
         for(let photo of tourSite.seasonPhotos) {
-          if(photo.month=== parseInt($scope.answer[0])) {
+          if(photo.month=== parseInt($scope.answer['month'])) {
             $scope.photos.push(photo.img)
           }
         }
@@ -97,48 +102,44 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
        for(let tourSite of tourSites ) {
          for(let photo of tourSite.foodPhotos) {
              $scope.photos.push(photo)
+             console.log(photo);
          }
        }
-
     }
     if($scope.type ==='activity') {
-      let myImg;
-      let myPhoto = '';
+      let myAct = ['food','gambling','hiking','landmark','music','shopping','sightseeing','traditional','waterSports']
       $scope.photos = [];
-      for(let tourSite of tourSites ) {
-        for(let photo of tourSite.activity) {
-          // if(myPhoto.length<1) myPhoto += photo;
-          // else myPhoto += (','+photo)
-        }
-        myImg = "assets/activity/"+ myPhoto +'@'+tourSite.name+'.png'
-        $scope.photos.push(myImg);
+      for(let act of myAct ) {
+        $scope.photos.push('assets/activity/'+act+'.png');
       }
     }
 
-    if($scope.photos.length>1){
-      console.log($scope.photos.length )
+    if(Object.keys($scope.photos).length>1){
       $('.question_card').removeClass('nophoto');
       $('.question_card').addClass('photo');
     }
   }
 
-
   /* Method to send user's answers to the server and get results */
   $scope.sendQuery = function() {
-    //change value into type data
-    Result.getResults($scope.data.puppyData)
-      .then(function(resp) {
-        /* Put results in the window scope container set in the AppController  */
-        $window.results = resp.data;
-        return "success";
-      })
-      .then(function(success) {
-        $location.path('/result');
-      });
+    console.log('현재 입력된 데이터 : ', $scope.answer)
+    $scope.answer['food'] = reduceImageRoute($scope.answer['food'])
+    $scope.answer['activitiy'] = reduceImageRoute($scope.answer['activity']);
+    $scope.answer['season'] = reduceImageRoute($scope.answer['season']);
+    console.log($scope.answer);
+    // Result.getResults($scope.data.puppyData)
+    //   .then(function(resp) {
+         // Put results in the window scope container set in the AppController  
+    //     $window.results = resp.data;
+    //     return "success";
+    //   })
+    //   .then(function(success) {
+    //     $location.path('/result');
+    //   });
   };
 
 
-  //fullpage.js options 
+  //fullpage.js options
   var _this = this;
   this.mainOptions = {
     anchors: ['1', '2', '3', '4', '5', '6'],
@@ -148,4 +149,14 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
   };
 
   $scope.options = this.mainOptions;
+}
+
+
+function reduceImageRoute (route){
+  let lastIndex = route.lastIndexOf('_')>0?route.lastIndexOf('_'):route.lastIndexOf('.');
+  let startIndex = route.lastIndexOf('@')>0?route.lastIndexOf('@'):route.lastIndexOf('/');
+  let returnVal = '';
+  returnVal = route.slice(startIndex+1,lastIndex)
+  return returnVal;
+
 }

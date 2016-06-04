@@ -73,7 +73,7 @@ div.question-wrapper {
 
 div.in-card {
   width: 800px;
-  height: 260px;
+  height: 220px;
 
 
 }
@@ -121,6 +121,7 @@ header a {
 }
 
 .md-raised.intro {
+  background-color: #89FBE4;
   width: 420px;
   height: 46px;
   font-weight: bold;
@@ -139,6 +140,7 @@ header a {
   color: white;
   position:absolute;
   bottom: -50px;
+  border:none;
 }
 .div.next-question {
   font-weight: 200px;
@@ -196,7 +198,7 @@ form {
   -webkit-transition: height 1s ease-in;
 }
 .nophoto{
-  height:200px;
+  height:200px !important;
   -webkit-transition: height 1s;
 }
 
@@ -232,16 +234,16 @@ md-radio-button {
   font-size:15px;
 }
 
+
+
 md-radio-button .md-on {
   margin-left: 8px;
   background-color: #2AE6D6 !important;
-
-
 }
 
 md-radio-button .md-off {
   margin-left: 8px;
-  border-color: gray;
+  border-color: gray !important;
 }
 
 md-radio-button.md-checked .md-off{
@@ -255,9 +257,6 @@ button[disabled] {
 md-radio-button {
   color:white;
 }
-md-radio-button .md-off, md-radio-button .md-on {
-  border-color:white !important;
-}
 
 .photobox{
   padding:0px !important;
@@ -266,6 +265,7 @@ md-radio-button .md-off, md-radio-button .md-on {
   width: 100px;
 }
 #photo-container {
+  margin-top: 30px;
   border-radius:5px;
   position:relative;
   width:70%;
@@ -286,3 +286,13 @@ md-radio-button .md-off, md-radio-button .md-on {
   height:180%;
   z-index:1000;
 }
+
+md-button.md-default-theme.md-raised[disabled] {
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+md-radio-group.layout-row md-radio-button:focus{
+  outline:0px !important;
+}
+
+
