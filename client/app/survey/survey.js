@@ -11,7 +11,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
   $scope.height = window.innerHeight;
   $scope.questions = QuestionList.questions;
   $scope.questionIndex = 0;
-  $scope.answer = [];
+  $scope.answer = {};
 
   let questionIndex=0;
   let questions;
@@ -56,8 +56,11 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
 
   //this function make 'next' button able when radio is chosen.(다음 질문 버튼을 able하게 하는 함수.)
   $scope.ableButton = function(value) {
-      $scope.answer[$scope.questionIndex] = value;
+      $scope.answer[$scope.type] = value;
       $('button').removeAttr('disabled');
+      if($scope.questionIndex===5){
+        $('.md-button').removeAttr('disabled');
+      }
   }
 
 
@@ -74,9 +77,6 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
         $('button').css('display','none');
         $('.md-button').css('display','');
         $('#menu').css('display','none');
-
-
-
         // $('.md-button').removeAttr('disabled');
       }
     }else{
@@ -95,7 +95,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       $scope.photos = [];
       for(let tourSite of tourSites ) {
         for(let photo of tourSite.seasonPhotos) {
-          if(photo.month=== parseInt($scope.answer[0])) {
+          if(photo.month=== parseInt($scope.answer['month'])) {
             $scope.photos.push(photo.img)
           }
         }
@@ -108,24 +108,17 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
              $scope.photos.push(photo)
          }
        }
-
     }
     if($scope.type ==='activity') {
-      let myImg;
-      let myPhoto = '';
+      let myAct = ['food','gambling','hiking','landmark','music','shopping','sightseeing','traditional','waterSports']
       $scope.photos = [];
-      for(let tourSite of tourSites ) {
-        for(let photo of tourSite.activity) {
-          // if(myPhoto.length<1) myPhoto += photo;
-          // else myPhoto += (','+photo)
-        }
-        myImg = "assets/activity/"+ myPhoto +'@'+tourSite.name+'.png'
-        $scope.photos.push(myImg);
+      for(let act of myAct ) {
+        $scope.photos.push('asset/activity/'+act+'.png');
       }
     }
 
     if($scope.photos.length>1){
-      console.log($scope.photos.length )
+      console.log($scope.photos.length)
       $('.question_card').removeClass('nophoto');
       $('.question_card').addClass('photo');
     }

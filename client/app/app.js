@@ -74,8 +74,7 @@ angular.module('puppyfinder', [
     1: {
       subject : "질문01 | 여행계획",
       title: "당신이 여행지에 도착했습니다. 지금은 몇월일까요?",
-      content:"",
-      type: "inside",
+      type: "month",
       options: [
         { value: "1", text: "1월" },
         { value: "2", text: "2월" },
@@ -95,10 +94,8 @@ angular.module('puppyfinder', [
     2: {
       subject : "질문02 | 여행계획",
       title: "당신은 이곳에서 얼마나 머물 예정인가요?",
-      content: "",
-      type: "single",
+      type: "day",
       options: [
-
         { value: "false", text: "1일" },
         { value: "true", text: "1일 ~ 7일" },
         { value: "dafault", text: "7일~ 30일" },
@@ -113,8 +110,7 @@ angular.module('puppyfinder', [
       index : "slide3",
       subject : "질문03 | money",
       title: "여행에 얼마를 쓰실 건가요?",
-      content: "뵹뵹",
-      type: "active",
+      type: "money",
       options: [
 
       { value: 10, text: "1 ~ 10 만원" },
@@ -129,47 +125,20 @@ angular.module('puppyfinder', [
     4: {
       subject : "질문04 | 생활환경",
       title: "당신은 주변을 둘러보았습니다. 어떤 풍경이 보이나요?",
-      content: "",
       type: "season",
-      options: [
-        { value: "true", text: "봄" },
-        { value: "false", text: "여름" },
-        { value: "dafault", text: "가을" },
-        { value: "dafault", text: "겨울" },
-        { value: "dafault", text: "상관없음" },
-      ]
-
     },
-
     5: {
       subject : "질문05 | food",
       title: "배가고파 음식점에 들어왔습니다. 음식을 주문해 주세요.",
-      content: "",
       name: "allergic",
       type: "food",
-      options: [
-        { value: "true", text: "한식" },
-        { value: "false", text: "중식" },
-        { value: "dafault", text: "일식" },
-        { value: "dafault", text: "양식" },
-        { value: "dafault", text: "상관없음" },
-
-      ]
     },
 
     6: {
       subject : "질문06 | activity",
       title: "배도부르고 관광을 하려고 합니다. 어떤 활동을 하고싶나요?",
-      content: "",
       name: "friendly",
       type: "activity",
-      options: [
-        { value: "true", text: "멈춤" },
-        { value: "false", text: "움직" },
-        { value: "dafault", text: "천천" },
-        { value: "dafault", text: "천천" },
-        { value: "dafault", text: "천천" },
-      ]
     }
   };
 
