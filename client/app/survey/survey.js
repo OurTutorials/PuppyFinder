@@ -38,7 +38,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     //         $scope.photos.push(ph.img)
     //       }
     //     }
-    // } 
+    // }
 
     // if($scope.photos.length>1){
     //   console.log($scope.photos.length )
@@ -79,9 +79,9 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
 
     //change button when last question.
 
-    
+
     }
-   
+
     const question = questions[$scope.questionIndex];
     for(let key in question) {
       $scope[key] = question[key];
@@ -102,6 +102,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
        for(let tourSite of tourSites ) {
          for(let photo of tourSite.foodPhotos) {
              $scope.photos.push(photo)
+             console.log(photo);
          }
        }
     }
@@ -138,7 +139,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
   };
 
 
-  //fullpage.js options 
+  //fullpage.js options
   var _this = this;
   this.mainOptions = {
     anchors: ['1', '2', '3', '4', '5', '6'],

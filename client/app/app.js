@@ -138,7 +138,7 @@ angular.module('puppyfinder', [
 
     6: {
       subject : "질문06 | activity",
-      title: "관광을 하려고 합니다. 어떤 활동을 하고싶나요?",
+      title: "관광을 합니다. 어떤 활동을 하고싶나요?",
       content: "",
       name: "friendly",
       type: "activity",

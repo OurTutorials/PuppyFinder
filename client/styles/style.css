@@ -121,7 +121,7 @@ header a {
 }
 
 .md-raised.intro {
-  background-color: #2AE6D6;
+  background-color: #89FBE4;
   width: 420px;
   height: 46px;
   font-weight: bold;
@@ -140,6 +140,7 @@ header a {
   color: white;
   position:absolute;
   bottom: -50px;
+  border:none;
 }
 .div.next-question {
   font-weight: 200px;
@@ -197,7 +198,7 @@ form {
   -webkit-transition: height 1s ease-in;
 }
 .nophoto{
-  height:200px;
+  height:200px !important;
   -webkit-transition: height 1s;
 }
 
@@ -242,7 +243,7 @@ md-radio-button .md-on {
 
 md-radio-button .md-off {
   margin-left: 8px;
-  border-color: gray;
+  border-color: gray !important;
 }
 
 md-radio-button.md-checked .md-off{
@@ -255,9 +256,6 @@ button[disabled] {
 
 md-radio-button {
   color:white;
-}
-md-radio-button .md-off, md-radio-button .md-on {
-  border-color:white !important;
 }
 
 .photobox{
