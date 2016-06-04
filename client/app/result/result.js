@@ -1,4 +1,4 @@
 angular.module('result', [])
-  .controller('ResultController', function($window, $scope, $sce, RelatedContents) {
-    $scope.selected = $window.selected
+  .controller('ResultController', function($window, $scope) {
+    $scope.answer = $window.answer;
   });
