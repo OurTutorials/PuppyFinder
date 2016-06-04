@@ -235,8 +235,6 @@ md-radio-button {
 md-radio-button .md-on {
   margin-left: 8px;
   background-color: #2AE6D6 !important;
-
-
 }
 
 md-radio-button .md-off {
@@ -285,4 +283,8 @@ md-radio-button .md-off, md-radio-button .md-on {
   width:180%;
   height:180%;
   z-index:1000;
+}
+
+md-button.md-default-theme.md-raised[disabled] {
+  background-color: rgba(0,0,0,0.5) !important;
 }
