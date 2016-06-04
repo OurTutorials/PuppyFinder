@@ -1,4 +1,4 @@
-angular.module('puppyfinder.survey', [])
+angular.module('survey', [])
   .controller('SurveyController', SurveyController);
 
 SurveyController.$inject = ['$scope', '$window', '$location', 'QuestionList', 'Result', '$compile', 'getData']
@@ -46,18 +46,19 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
   //this function make 'next' button able when radio is chosen.(다음 질문 버튼을 able하게 하는 함수.)
   $scope.ableButton = function(value) {
 
-      $scope.answer[$scope.type] = value;
-      $('button').removeAttr('disabled');
-      if($scope.questionIndex===5){
-        $('.md-button').removeAttr('disabled');
+    $scope.answer[$scope.type] = value;
+    $('button').removeAttr('disabled');
+    if ($scope.questionIndex === 5) {
+      $('.md-button').removeAttr('disabled');
 
-      }
+    }
 
     //change progress bar
-    let percent = Math.floor((($scope.questionIndex+1)*(16.6))).toString()+'%'
+    let percent = Math.floor((($scope.questionIndex + 1) * (16.6))).toString() + '%'
     $('.progress-bar').css('width', percent);
     $('.progress-bar').text(percent);
-    $('.progress').css('opacity', ($scope.questionIndex+1)*(0.16))
+    $('.progress').css('opacity', ($scope.questionIndex + 1) * (0.16))
+
   }
 
 
@@ -66,11 +67,11 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
   //'다음'버튼을 눌렀을때 다음으로 이동하도록 해 주는 버튼에 묶여있는 함수.
   $scope.nextquestion = function() {
 
-    
+
     console.log('현재 입력된 데이터 : ', $scope.answer);
-    
+
     //increase index of question when it is smaller than 5.
-    if($scope.questionIndex<5){
+    if ($scope.questionIndex < 5) {
       $scope.questionIndex++;
       $('button').attr('disabled', 'true');
       if ($scope.questionIndex === 5) {
@@ -113,7 +114,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     }
 
 
-    if($scope.photos){
+    if ($scope.photos) {
       $('.question_card').removeClass('nophoto');
       $('.question_card').addClass('photo');
     }
@@ -126,9 +127,45 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
   $scope.sendQuery = function() {
     console.log('현재 입력된 데이터 : ', $scope.answer)
     $scope.answer['food'] = reduceImageRoute($scope.answer['food'])
-    $scope.answer['activitiy'] = reduceImageRoute($scope.answer['activity']);
+    $scope.answer['activity'] = reduceImageRoute($scope.answer['activity']);
     $scope.answer['season'] = reduceImageRoute($scope.answer['season']);
-    console.log($scope.answer);
+
+    const TourSitesList = [];
+    const resultScoreList = [];
+    const selected = [];
+
+    tourSites.forEach((tourSite) => {
+      if (tourSite.name === $scope.answer.food) {
+        tourSite.score++;
+      }
+      if (tourSite.name === $scope.answer.season) {
+        tourSite.score++;
+      }
+      if ($scope.answer.day * tourSite.dailyFee + tourSite.flightFee <= $scope.answer.money) {
+        tourSite.score++;
+      }
+      for (activity of tourSite.activity) {
+        if (activity === $scope.answer.activity) {
+          tourSite.score++;
+        }
+      }
+      TourSitesList.push(tourSite.name);
+      resultScoreList.push(tourSite.score);
+    })
+    const resultScore = resultScoreList.reduce((prev, current, currentIndex) => {
+      if (prev <= current) {
+        selected.push(TourSitesList[currentIndex]);
+        return current
+      } else {
+        return prev;
+      }
+    }, 0);
+
+    console.log(tourSites);
+    console.log('selected: ', selected);
+    $window.answer = selected[Math.floor(Math.random() * selected.length)];
+    console.log('final answer: ', $window.answer);
+    $location.path('/result');
   };
 
 
@@ -139,8 +176,6 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     menu: '#menu',
     lockAnchors: false,
   };
-
-  $scope.options = this.mainOptions;
 }
 
 
@@ -150,5 +185,4 @@ function reduceImageRoute(route) {
   let returnVal = '';
   returnVal = route.slice(startIndex + 1, lastIndex)
   return returnVal;
-
 }

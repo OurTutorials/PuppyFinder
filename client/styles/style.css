@@ -154,7 +154,7 @@ header a {
 .question-header {
   font-size: 13px;
   padding: 0;
-  margin-bottom:20px;
+  margin-bottom: 20px;
   color: white;
 }
 
@@ -258,8 +258,6 @@ md-radio-button {
   color: white;
 }
 
-
-
 #photo-container {
   margin-top: 0px;
   border-radius: 5px;
@@ -298,17 +296,15 @@ md-radio-group.layout-row md-radio-button:focus {
   outline: 0px !important;
 }
 
-
 .progress {
-  opacity:0.01;
-  bottom:10px;
+  opacity: 0.01;
+  bottom: 10px;
   width: 100%;
-  position:fixed;
-  z-index:5000;
-  -webkit-transition : opacity 0.3s;
+  position: fixed;
+  z-index: 5000;
+  -webkit-transition: opacity 0.3s;
 }
 
 .progress-bar {
-
   background-color: #2AE6D6 !important;
 }

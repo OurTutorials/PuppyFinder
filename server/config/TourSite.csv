@@ -1,6 +1,6 @@
 name,flightFee,dailyFee,activity,description
-iceland,1500000,200000,"hiking,sigthseeing",Hi ! I'm Iceland!
-cotswold,1200000,150000,sightseeing,Hi ! I'm cotswold!
+iceland,1500000,200000,"hiking,sightseeing",Hi ! I'm Iceland!
+cotswolds,1200000,150000,sightseeing,Hi ! I'm cotswolds!
 madrid,1140000,120000,"shopping,music",Hi ! I'm madrid!
 hangzhou,200000,120000,"food,traditional",Hi ! I'm hangzhou!
 taiwan,200000,50000,"food,traditional",Hi ! I'm taiwan!

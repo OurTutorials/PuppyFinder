@@ -13,6 +13,7 @@ const TourSiteSchema = new Schema({
   flightFee: Number,
   dailyFee: Number,
   description: String,
+  score: Number
 });
 
 export default mongoose.model('TourSite', TourSiteSchema);
