@@ -32,11 +32,17 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
 
   //this function make 'next' button able when radio is chosen.(다음 질문 버튼을 able하게 하는 함수.)
   $scope.ableButton = function(value) {
-    $scope.answer[$scope.type] = value;
-    $('button').removeAttr('disabled');
-    if ($scope.questionIndex === 5) {
-      $('.md-button').removeAttr('disabled');
-    }
+
+      $scope.answer[$scope.type] = value;
+      $('button').removeAttr('disabled');
+      if($scope.questionIndex===5){
+        $('.md-button').removeAttr('disabled');
+      }
+
+    //change progress bar
+    let percent = Math.floor((($scope.questionIndex+1)*(16.6))).toString()+'%'
+    $('.progress-bar').css('width', percent);
+    $('.progress-bar').text(percent);
   }
 
 
@@ -44,9 +50,12 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
 
   //'다음'버튼을 눌렀을때 다음으로 이동하도록 해 주는 버튼에 묶여있는 함수.
   $scope.nextquestion = function() {
-    console.log('현재 입력된 데이터 : ', $scope.answer)
-      //increase index of question when it is smaller than 5.
-    if ($scope.questionIndex < 5) {
+
+    
+    console.log('현재 입력된 데이터 : ', $scope.answer);
+    
+    //increase index of question when it is smaller than 5.
+    if($scope.questionIndex<5){
       $scope.questionIndex++;
       $('button').attr('disabled', 'true');
       if ($scope.questionIndex === 5) {
@@ -88,10 +97,14 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       }
     }
 
-    if ($scope.photos && Object.keys($scope.photos).length > 1) {
+
+    if($scope.photos){
       $('.question_card').removeClass('nophoto');
       $('.question_card').addClass('photo');
     }
+
+
+
   }
 
   /* Method to send user's answers to the server and get results */
@@ -110,7 +123,6 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     anchors: ['1', '2', '3', '4', '5', '6'],
     menu: '#menu',
     lockAnchors: false,
-    navigation: true
   };
 
   $scope.options = this.mainOptions;

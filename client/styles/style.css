@@ -294,3 +294,12 @@ md-button.md-default-theme.md-raised[disabled] {
 md-radio-group.layout-row md-radio-button:focus {
   outline: 0px !important;
 }
+
+
+.progress {
+  bottom:10px;
+  width: 100%;
+  position:fixed;
+  z-index:5000;
+}
+
