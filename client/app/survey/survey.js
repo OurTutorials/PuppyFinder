@@ -37,12 +37,14 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       $('button').removeAttr('disabled');
       if($scope.questionIndex===5){
         $('.md-button').removeAttr('disabled');
+
       }
 
     //change progress bar
     let percent = Math.floor((($scope.questionIndex+1)*(16.6))).toString()+'%'
     $('.progress-bar').css('width', percent);
     $('.progress-bar').text(percent);
+    $('.progress').css('opacity', ($scope.questionIndex+1)*(0.16))
   }
 
 

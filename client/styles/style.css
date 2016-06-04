@@ -297,9 +297,15 @@ md-radio-group.layout-row md-radio-button:focus {
 
 
 .progress {
+  opacity:0.01;
   bottom:10px;
   width: 100%;
   position:fixed;
   z-index:5000;
+  -webkit-transition : opacity 0.3s;
 }
 
+.progress-bar {
+
+  background-color: #2AE6D6 !important;
+}
