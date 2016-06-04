@@ -65,13 +65,14 @@
                   </div>
                 </div>
             </div>
+
           </div>
           <!--fullpage를 움직여주고, 다음 질문으로 넘어가게 해 주는 버튼-->
           <!--fullpage를 적용시켜주기 위해서 id=menu를 적용함.-->
           <ul id="menu">
             <li data-menuanchor="{{questionIndex+1}}">
               <a>
-                 <button class="md-raised question" ng-if="true" ng-disabled="true" type="button" ng-click="nextquestion()">다음 질문</button>
+                 <button class="md-raised question" ng-if="true" ng-disabled="true" type="button" ng-click="nextquestion()"><h4>다음 질문</h4></button>
               </a>
             </li>
           </ul>
