@@ -27,6 +27,19 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       for (let key in question) {
         $scope[key] = question[key];
       }
+      //for dummy photo data
+      // let myAct = ['food', 'gambling', 'hiking', 'landmark', 'music', 'shopping', 'sightseeing', 'traditional', 'waterSports']
+      // $scope.photos = [];
+      // for (let act of myAct) {
+      //   $scope.photos.push('assets/activity/' + act + '.png');
+      // }
+
+      // if($scope.photos){
+      //   $('.question_card').removeClass('nophoto');
+      //   $('.question_card').addClass('photo');
+      // }
+
+
     });
 
 

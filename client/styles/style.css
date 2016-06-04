@@ -154,7 +154,7 @@ header a {
 .question-header {
   font-size: 13px;
   padding: 0;
-  margin-bottom: 79px;
+  margin-bottom:20px;
   color: white;
 }
 
@@ -166,7 +166,7 @@ header a {
 h1.question-h1 {
   text-align: center;
   color: white;
-  font-size: 36px;
+  font-size: 25px;
 }
 
 fieldset {
@@ -194,6 +194,7 @@ form {
 
 .question_card {
   padding: 10px;
+  padding-top: 10px;
   border-radius: 10px;
   -webkit-transition: height 1s ease-in;
 }
@@ -257,18 +258,20 @@ md-radio-button {
   color: white;
 }
 
+
+
+#photo-container {
+  margin-top: 0px;
+  border-radius: 5px;
+  position: relative;
+  width: 80%;
+  height: 380px;
+}
+
 .photobox {
   padding: 0px !important;
   margin: 0px;
-  height: 100px;
-  width: 100px;
-}
-
-#photo-container {
-  margin-top: 30px;
-  border-radius: 5px;
-  position: relative;
-  width: 70%;
+  height: 130px;
 }
 
 .photobox img {
