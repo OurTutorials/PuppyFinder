@@ -88,7 +88,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       }
     }
 
-    if (Object.keys($scope.photos).length > 1) {
+    if ($scope.photos && Object.keys($scope.photos).length > 1) {
       $('.question_card').removeClass('nophoto');
       $('.question_card').addClass('photo');
     }

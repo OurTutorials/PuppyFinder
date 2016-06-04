@@ -1,5 +1,7 @@
 /* reset css */
-ul, li {
+
+ul,
+li {
   list-style: none;
 }
 
@@ -13,7 +15,9 @@ ul {
   margin: 0;
 }
 
+
 /* Space out content a bit */
+
 body {
   /*padding-top: 80px;
   padding-bottom: 20px;*/
@@ -24,9 +28,9 @@ body {
 .maintitle {
   font-size: 53px;
   line-height: 1;
-  font-weight:bold;
+  font-weight: bold;
   margin: 0;
-  color:white;
+  color: white;
 }
 
 p.intro {
@@ -66,6 +70,7 @@ div.intro {
   z-index: 10;
   color: black;
 }
+
 div.question-wrapper {
   background-color: #ABABAB;
   background-size: cover;
@@ -74,13 +79,11 @@ div.question-wrapper {
 div.in-card {
   width: 800px;
   height: 220px;
-
-
 }
 
-img{
-    width:33%;
-    height: 33%;
+img {
+  width: 33%;
+  height: 33%;
 }
 
 md-card.question {
@@ -99,7 +102,8 @@ div.mydog {
   width: 640px;
 }
 
-header, footer {
+header,
+footer {
   position: fixed;
   z-index: 10;
 }
@@ -127,21 +131,22 @@ header a {
   font-weight: bold;
 }
 
-.list{
+.list {
   margin-top: 20px;
-   text-align: center;
+  text-align: center;
 }
 
 .md-raised.question {
-  margin-top:30px;
+  margin-top: 30px;
   width: 800px;
   height: 46px;
   background-color: #2AE6D6;
   color: white;
-  position:absolute;
+  position: absolute;
   bottom: -50px;
-  border:none;
+  border: none;
 }
+
 .div.next-question {
   font-weight: 200px;
 }
@@ -150,7 +155,7 @@ header a {
   font-size: 13px;
   padding: 0;
   margin-bottom: 79px;
-  color:white;
+  color: white;
 }
 
 .question-option {
@@ -160,13 +165,13 @@ header a {
 
 h1.question-h1 {
   text-align: center;
-  color:white;
+  color: white;
   font-size: 36px;
 }
 
 fieldset {
-  margin:0 0 20px 0;
-  padding:0;
+  margin: 0 0 20px 0;
+  padding: 0;
   border-width: 0;
 }
 
@@ -179,62 +184,56 @@ fieldset {
 }
 
 form {
- position: fixed;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index:500;
-  border-radius:10px;
+  z-index: 500;
+  border-radius: 10px;
 }
 
 .question_card {
-  padding:10px;
-  border-radius:10px;
+  padding: 10px;
+  border-radius: 10px;
   -webkit-transition: height 1s ease-in;
 }
 
-.photo{
-  height:500px !important;
+.photo {
+  height: 500px !important;
   -webkit-transition: height 1s ease-in;
 }
-.nophoto{
-  height:200px !important;
+
+.nophoto {
+  height: 200px !important;
   -webkit-transition: height 1s;
 }
 
 .section {
-  background:no-repeat center center;
+  background: no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-.list{
-  color:white;
+.list {
+  color: white;
 }
-
-
 
 fieldset {
   text-align: center;
 }
 
-
-
-md-radio-group{
+md-radio-group {
   margin-left: 8px;
   margin-top: 30px;
   text-align: center;
-
 }
 
 md-radio-button {
-  color:white;
-  font-size:15px;
+  color: white;
+  font-size: 15px;
 }
-
-
 
 md-radio-button .md-on {
   margin-left: 8px;
@@ -246,53 +245,52 @@ md-radio-button .md-off {
   border-color: gray !important;
 }
 
-md-radio-button.md-checked .md-off{
+md-radio-button.md-checked .md-off {
   border-color: #2AE6D6 !important;
 }
 
 button[disabled] {
-    background-color:rgba(0,0,0,0.3) !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
 }
 
 md-radio-button {
-  color:white;
+  color: white;
 }
 
-.photobox{
-  padding:0px !important;
-  margin:0px;
-  height:100px;
+.photobox {
+  padding: 0px !important;
+  margin: 0px;
+  height: 100px;
   width: 100px;
 }
+
 #photo-container {
   margin-top: 30px;
-  border-radius:5px;
-  position:relative;
-  width:70%;
+  border-radius: 5px;
+  position: relative;
+  width: 70%;
 }
 
-.photobox img{
-  padding:5px;
-  width:100%;
-  height:100%;
-  -webkit-transition : width 0.3s, height 0.3s ;
+.photobox img {
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: width 0.3s, height 0.3s;
 }
 
-.photobox img:hover{
-  position:absolute;
-  left:-40%;
-  top:-40%;
-  width:180%;
-  height:180%;
-  z-index:1000;
+.photobox img:hover {
+  position: absolute;
+  left: -40%;
+  top: -40%;
+  width: 180%;
+  height: 180%;
+  z-index: 1000;
 }
 
 md-button.md-default-theme.md-raised[disabled] {
-  background-color: rgba(0,0,0,0.5) !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
-md-radio-group.layout-row md-radio-button:focus{
-  outline:0px !important;
+md-radio-group.layout-row md-radio-button:focus {
+  outline: 0px !important;
 }
-
-
