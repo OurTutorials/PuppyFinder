@@ -96,11 +96,11 @@ angular.module('puppyfinder', [
       title: "당신은 이곳에서 얼마나 머물 예정인가요?",
       type: "day",
       options: [
-        { value: "false", text: "1일" },
-        { value: "true", text: "1일 ~ 7일" },
-        { value: "dafault", text: "7일~ 30일" },
-        { value: "dafault", text: "30일 ~ 180일" },
-        { value: "dafault", text: "180일 ~" },
+        { value: 1, text: "1일" },
+        { value: 7, text: "1일 ~ 7일" },
+        { value: 30, text: "7일~ 30일" },
+        { value: 180, text: "30일 ~ 180일" },
+        { value: 200, text: "180일 ~" },
 
       ]
     },
@@ -112,13 +112,11 @@ angular.module('puppyfinder', [
       title: "여행에 얼마를 쓰실 건가요?",
       type: "money",
       options: [
-
       { value: 10, text: "1 ~ 10 만원" },
-        { value: 10, text: "10 ~ 30 만원" },
-        { value: 30, text: "30 ~ 70 만원" },
-        { value: 100, text: "70 ~ 200 만원" },
-        { value: 100, text: "200~ 만원" },
-
+        { value: 30, text: "10 ~ 30 만원" },
+        { value: 70, text: "30 ~ 70 만원" },
+        { value: 200, text: "70 ~ 200 만원" },
+        { value: 300, text: "200~ 만원" },
       ]
     },
 

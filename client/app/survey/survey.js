@@ -30,8 +30,6 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     for(let key in question) {
       $scope[key] = question[key];
     }
-
-
     // dummy photodata for css set
     // $scope.photos = [];
     // for(let tour of tourSites ) {
@@ -47,8 +45,6 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     //   $('.question_card').removeClass('nophoto');
     //   $('.question_card').addClass('photo');
     // }
-
-
   });
 
 
@@ -117,13 +113,11 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       }
     }
 
-    if($scope.photos.length>1){
-      console.log($scope.photos.length)
+    if(Object.keys($scope.answer).length>1){
       $('.question_card').removeClass('nophoto');
       $('.question_card').addClass('photo');
     }
   }
-
 
   /* Method to send user's answers to the server and get results */
   $scope.sendQuery = function() {
