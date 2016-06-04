@@ -146,6 +146,7 @@ angular.module('puppyfinder', [
       title: "배가고파 음식점에 들어왔습니다. 음식을 주문해 주세요.",
       content: "",
       name: "allergic",
+      type: "food",
       options: [
         { value: "true", text: "한식" },
         { value: "false", text: "중식" },

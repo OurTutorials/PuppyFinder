@@ -59,7 +59,7 @@
                   <div class="container"  id="photo-container">
                     <div class="row">
                       <div class="col-md-4 col-xs-4 photobox" ng-repeat="photo in photos track by $index" ng-if="photos">
-                          <img ng-src="{{photo}}" alt="Photo" ng-click=ableButton(1) />
+                          <img ng-src="{{photo}}" alt="Photo" ng-click=ableButton(photo) />
                       <br />
                     </div>
                   </div>

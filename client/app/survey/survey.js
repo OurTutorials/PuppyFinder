@@ -47,7 +47,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     //   $('.question_card').removeClass('nophoto');
     //   $('.question_card').addClass('photo');
     // }
-    
+
 
   });
 
@@ -83,29 +83,37 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     }
 
     if($scope.type ==='season') {
-      console.log('scope type is season');
-      console.log($scope.answer[0])
-      console.log(tourSites[1].seasonPhotos)
       $scope.photos = [];
       for(let tourSite of tourSites ) {
         for(let photo of tourSite.seasonPhotos) {
-          console.log(photo.month, $scope.answer[0])
           if(photo.month=== parseInt($scope.answer[0])) {
             $scope.photos.push(photo.img)
           }
         }
       }
     }
+    if($scope.type === 'food') {
+      $scope.photos = [];
+       for(let tourSite of tourSites ) {
+         for(let photo of tourSite.foodPhotos) {
+             $scope.photos.push(photo)
+         }
+       }
 
-    // if($scope.type ==='activity') {
-    //   $scope.photos = [];
-    //   for(let tourSite of tourSites ) {
-    //     for(let photo of tourSite.activity) {
-    //         $scope.photos.push(photo)
-    //         console.log('scope photo is ' , $scope.photos)
-    //     }
-    //   }
-    // }
+    }
+    if($scope.type ==='activity') {
+      let myImg;
+      let myPhoto = '';
+      $scope.photos = [];
+      for(let tourSite of tourSites ) {
+        for(let photo of tourSite.activity) {
+          // if(myPhoto.length<1) myPhoto += photo;
+          // else myPhoto += (','+photo)
+        }
+        myImg = "assets/activity/"+ myPhoto +'@'+tourSite.name+'.png'
+        $scope.photos.push(myImg);
+      }
+    }
 
     if($scope.photos.length>1){
       console.log($scope.photos.length )
