@@ -179,14 +179,21 @@ form {
   transform: translate(-50%, -50%);
   z-index:500;
   border-radius:10px;
-
-
 }
 
 .question_card {
   padding:10px;
   border-radius:10px;
+  -webkit-transition: height 1s ease-in;
+}
 
+.photo{
+  height:500px !important;
+  -webkit-transition: height 1s ease-in;
+}
+.nophoto{
+  height:200px;
+  -webkit-transition: height 1s;
 }
 
 .section {
@@ -205,3 +212,37 @@ button[disabled] {
     background-color:rgba(0,0,0,0.3) !important;
 }
 
+md-radio-button {
+  color:white;
+}
+md-radio-button .md-off, md-radio-button .md-on {
+  border-color:white !important;
+}
+
+.photobox{
+  padding:0px !important;
+  margin:0px;
+  height:100px;
+  width: 100px;
+}
+#photo-container {
+  border-radius:5px;
+  position:relative;
+  width:70%;
+}
+
+.photobox img{
+  padding:5px;
+  width:100%;
+  height:100%;
+  -webkit-transition : width 0.3s, height 0.3s ;
+}
+
+.photobox img:hover{
+  position:absolute;
+  left:-40%;
+  top:-40%;
+  width:180%;
+  height:180%;
+  z-index:1000;
+}
