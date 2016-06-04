@@ -57,7 +57,15 @@ angular.module('puppyfinder', [
       templateUrl: 'app/admin/remove.html',
       controller: 'RemoveController'
     })
-    $urlRouterProvider.otherwise('survey');
+    .state({
+      name: 'fullpage',
+      url: '/:fullpage',
+      templateUrl: 'app/survey/survey.html',
+      controller: 'SurveyController',
+      controllerAs: 'vm'
+    })
+
+    $urlRouterProvider.otherwise('intro');
 })
 
 .controller('AppController', function($window){
