@@ -27,7 +27,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       for (let key in question) {
         $scope[key] = question[key];
       }
-      //for dummy photo data
+      // for dummy photo data
       // let myAct = ['food', 'gambling', 'hiking', 'landmark', 'music', 'shopping', 'sightseeing', 'traditional', 'waterSports']
       // $scope.photos = [];
       // for (let act of myAct) {
@@ -38,11 +38,16 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       //   $('.question_card').removeClass('nophoto');
       //   $('.question_card').addClass('photo');
       // }
-
-
     });
 
-
+  $scope.hoverIn = function($event){
+    $('#section'+$scope.questionIndex).css('-webkit-filter','blur(5px)')
+    // $('.photobox img').css('-webkit-filter','blur(10px)')
+  }
+  $scope.hoverOut = function($event){
+    $('#section'+$scope.questionIndex).css('-webkit-filter','')
+    // $('.photobox img').css('-webkit-filter','blur(10px)')
+  }
   //this function make 'next' button able when radio is chosen.(다음 질문 버튼을 able하게 하는 함수.)
   $scope.ableButton = function(value) {
 
@@ -175,6 +180,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     anchors: ['1', '2', '3', '4', '5', '6'],
     menu: '#menu',
     lockAnchors: false,
+    navigation:false
   };
 }
 
