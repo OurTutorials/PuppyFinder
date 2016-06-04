@@ -73,7 +73,7 @@ div.question-wrapper {
 
 div.in-card {
   width: 800px;
-  height: 260px;
+  height: 220px;
 
 
 }
@@ -121,6 +121,7 @@ header a {
 }
 
 .md-raised.intro {
+  background-color: #2AE6D6;
   width: 420px;
   height: 46px;
   font-weight: bold;
@@ -232,6 +233,8 @@ md-radio-button {
   font-size:15px;
 }
 
+
+
 md-radio-button .md-on {
   margin-left: 8px;
   background-color: #2AE6D6 !important;
@@ -264,6 +267,7 @@ md-radio-button .md-off, md-radio-button .md-on {
   width: 100px;
 }
 #photo-container {
+  margin-top: 30px;
   border-radius:5px;
   position:relative;
   width:70%;
@@ -288,3 +292,9 @@ md-radio-button .md-off, md-radio-button .md-on {
 md-button.md-default-theme.md-raised[disabled] {
   background-color: rgba(0,0,0,0.5) !important;
 }
+
+md-radio-group.layout-row md-radio-button:focus{
+  outline:0px !important;
+}
+
+
