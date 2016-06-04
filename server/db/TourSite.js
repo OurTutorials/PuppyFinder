@@ -16,4 +16,3 @@ const TourSiteSchema = new Schema({
 });
 
 export default mongoose.model('TourSite', TourSiteSchema);
-
