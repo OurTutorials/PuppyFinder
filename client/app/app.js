@@ -98,21 +98,31 @@ angular.module('puppyfinder', [
       content: "",
       type: "single",
       options: [
-        { value: "false", text: "네, 가족들과 함께 살고 있어요" },
-        { value: "true", text: "아니요, 혼자 살고 있지만 충분한 애정과 관심을 줄 수 있어요!" },
-        { value: "dafault", text: "상관없어요" },
+
+        { value: "false", text: "하루" },
+        { value: "true", text: "하루 ~ 일주일" },
+        { value: "dafault", text: "일주일 ~ 한달" },
+        { value: "dafault", text: "한달 ~ 여섯달" },
+        { value: "dafault", text: "여섯달~" },
+
       ]
     },
 
     3: {
-      subject : "질문03 | 비용",
-      title: "당신의 주머니(카드)에 쓸 수 있는 돈이 다음과 같이 \n 남아있습니다. 얼마나 사용 가능하신가요?",
+
+      index : "slide3",
+      subject : "질문03 | money",
+      title: "당신에게 얼마가 있나요?",
       content: "뵹뵹",
       type: "active",
       options: [
-        { value: 10, text: "10~30 만원" },
-        { value: 30, text: "30~70 만원" },
-        { value: 100, text: "70~200 만원" },
+
+      { value: 10, text: "1 ~ 10 만원" },
+        { value: 10, text: "10 ~ 30 만원" },
+        { value: 30, text: "30 ~ 70 만원" },
+        { value: 100, text: "70 ~ 200 만원" },
+        { value: 100, text: "200~ 만원" },
+
       ]
     },
 
@@ -120,7 +130,15 @@ angular.module('puppyfinder', [
       subject : "질문04 | 생활환경",
       title: "당신은 주변을 둘러보았습니다. 어떤 풍경이 보이나요?",
       content: "",
-      type: "season"
+      type: "season",
+      options: [
+        { value: "true", text: "봄" },
+        { value: "false", text: "여름" },
+        { value: "dafault", text: "가을" },
+        { value: "dafault", text: "겨울" },
+        { value: "dafault", text: "상관없음" },
+      ]
+
     },
 
     5: {
@@ -133,6 +151,7 @@ angular.module('puppyfinder', [
         { value: "false", text: "중식" },
         { value: "dafault", text: "일식" },
         { value: "dafault", text: "양식" },
+        { value: "dafault", text: "상관없음" },
 
       ]
     },
@@ -145,6 +164,8 @@ angular.module('puppyfinder', [
       options: [
         { value: "true", text: "멈춤" },
         { value: "false", text: "움직" },
+        { value: "dafault", text: "천천" },
+        { value: "dafault", text: "천천" },
         { value: "dafault", text: "천천" },
       ]
     }
