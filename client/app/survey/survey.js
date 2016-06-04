@@ -5,6 +5,7 @@ angular.module('puppyfinder.survey', [])
 
 SurveyController.$inject = ['$scope', '$window', '$location', 'QuestionList', 'Result' ,'$compile','getData']
 
+
 function SurveyController($scope, $window, $location, QuestionList, Result, $compile, getData) {
   $scope.width = window.innerWidth;
   $scope.height = window.innerHeight;
@@ -29,7 +30,28 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     for(let key in question) {
       $scope[key] = question[key];
     }
+
+
+    // dummy photodata for css set
+    // $scope.photos = [];
+    // for(let tour of tourSites ) {
+    //     for(let ph of tour.seasonPhotos) {
+    //       if(ph.month=== 3) {
+    //         $scope.photos.push(ph.img)
+    //       }
+    //     }
+    // } 
+
+    // if($scope.photos.length>1){
+    //   console.log($scope.photos.length )
+    //   $('.question_card').removeClass('nophoto');
+    //   $('.question_card').addClass('photo');
+    // }
+    
+
   });
+
+
 
 
   //this function make 'next' button able when radio is chosen.(다음 질문 버튼을 able하게 하는 함수.)
@@ -37,6 +59,8 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       $scope.answer[$scope.questionIndex] = value;
       $('button').removeAttr('disabled');
   }
+
+
 
 
   //'다음'버튼을 눌렀을때 다음으로 이동하도록 해 주는 버튼에 묶여있는 함수.
@@ -59,16 +83,35 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     }
 
     if($scope.type ==='season') {
+      console.log('scope type is season');
+      console.log($scope.answer[0])
+      console.log(tourSites[1].seasonPhotos)
       $scope.photos = [];
-      for(tourSite of tourSites) {
-        for(let photo in tourSite.seasonPhotos) {
-          if($scope.slice||(photo.month === $scope.answer.slice(0,-1))) {
-            $scope.photos.push(photo.img);
+      for(let tourSite of tourSites ) {
+        for(let photo of tourSite.seasonPhotos) {
+          console.log(photo.month, $scope.answer[0])
+          if(photo.month=== parseInt($scope.answer[0])) {
+            $scope.photos.push(photo.img)
           }
         }
       }
     }
-      var currentSection = $('.active').attr('id');
+
+    // if($scope.type ==='activity') {
+    //   $scope.photos = [];
+    //   for(let tourSite of tourSites ) {
+    //     for(let photo of tourSite.activity) {
+    //         $scope.photos.push(photo)
+    //         console.log('scope photo is ' , $scope.photos)
+    //     }
+    //   }
+    // }
+
+    if($scope.photos.length>1){
+      console.log($scope.photos.length )
+      $('.question_card').removeClass('nophoto');
+      $('.question_card').addClass('photo');
+    }
   }
 
 

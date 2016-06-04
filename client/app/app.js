@@ -161,6 +161,7 @@ angular.module('puppyfinder', [
       title: "배도부르고 관광을 하려고 합니다. 어떤 활동을 하고싶나요?",
       content: "",
       name: "friendly",
+      type: "activity",
       options: [
         { value: "true", text: "멈춤" },
         { value: "false", text: "움직" },
