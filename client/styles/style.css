@@ -21,8 +21,8 @@ body {
   line-height: 1.6;
 }
 
-h1 {
-  font-size: 54px;
+.maintitle {
+  font-size: 53px;
   line-height: 1.35;
   margin: 0;
   color:white;
@@ -78,8 +78,8 @@ div.in-card {
 }
 
 img{
-    width:19%;
-    height: 19%;
+    width:33%;
+    height: 33%;
 }
 
 md-card.question {
@@ -115,6 +115,7 @@ header a {
 }
 
 .md-raised {
+  -webkit-transition: background-color 1s;
   margin: 0;
 }
 
@@ -126,7 +127,6 @@ header a {
 
 .list{
   margin-top: 20px;
-vertical-align: middle;
    text-align: center;
 }
 
@@ -153,6 +153,7 @@ vertical-align: middle;
 }
 
 h1.question-h1 {
+  text-align: center;
   color:white;
   font-size: 36px;
 }
@@ -189,7 +190,6 @@ form {
 }
 
 .section {
-
   background:no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -197,5 +197,11 @@ form {
   background-size: cover;
 }
 
+.list{
+  color:white;
+}
+
+button[disabled] {
+    background-color:rgba(0,0,0,0.3) !important;
 }
 

@@ -44,34 +44,53 @@
 
  <div class="question_card" layout="column" layout-align="center center" style= 'background-color:rgba(0,0,0,0.6)'>
     <div class="in-card" layout="column" layout-align="center">
-            <div class="question-header">{{questions[questionIndex].subject}}</div>
+            <!--  <div class="question-header">{{questions[questionIndex].subject}}</div>
             <h1 class="question-h1">{{questions[questionIndex].title}}</h1>
              <fieldset id="{{questions[questionIndex].name}}" ng-form="{{questions[questionIndex].name}}">
           <div class="list">
           <form ng-submit="submit()" ng-controller="AppCtrl" class="bidi" ng-cloak>
-              <label ng-repeat="option in questions[questionIndex].options">
-
-                <!-- <input ng-model="data.puppyData[questions[questionIndex].name]"  name="{{questions[questionIndex].name}}" value="{{option.value}}" ng-required="true"> -->
+              <label ng-repeat="option in questions[questionIndex].options"> -->
+                <!-- <input ng-model="data.puppyData[questions[questionIndex].name]"  name="{{questions[questionIndex].name}}" value="{{option.value}}" ng-required="true">
                 <md-radio-group layout="row" ng-model="questions.options">
                 <md-radio-button class="md-primary"  ng-value="{{$index}}" >{{option.text}}</md-radio-button>
-                </md-radio-gruop>
+                </md-1radio-gruop>
+                <md-radio-group layout="row">
+                <md-radio-button class="md-primary">{{option.text}}</md-radio-button>-->
+                <div class="question-header">{{subject}}</div>
+            <h1 class="question-h1">{{title}}</h1>
 
+             <fieldset id="{{type}}" ng-form="{{type}}">
+          <div>
+          <form ng-submit="submit()" ng-controller="AppCtrl" class="bidi" ng-cloak>
+
+              <label ng-repeat="option in options" ng-if="!photos">
+                <md-radio-group layout="row">
+
+                      <md-radio-group layout="row" ng-model="questions.options">
+                 <md-radio-button class="md-primary"  ng-value="{{$index}}" >{{option.text}}</md-radio-button>
+
+                <br />
+              </label>
+              <label ng-repeat="photo in photos" ng-if="photos">
+                <md-radio-group layout="row">
+                <input class="md-primary" ng-model="answer" type="radio"/><img ng-src={{photo}} alt="Photo" />
                 <br />
               </label>
           </form>
           </div>
           </fieldset>
-
            <ul id="menu">
              <li data-menuanchor="{{questionIndex+1}}">
                <a>
-                 <button class="md-raised question" ng-if="true" ng-disabled="false" type="button" ng-click="nextquestion()">다음 질문
+                 <button class="md-raised question" ng-if="true" ng-disabled="true" type="button" ng-click="nextquestion()">다음 질문
                  </button>
                </a>
              </li>
            </ul>
             <!-- Submit button for the entire form; disabled if any question is not answered -->
-            <input class="md-button md-raised question primary" type="submit" ng-if="true" value="나에게 맞는 반려견 보기" ng-disabled="true" />
+
+            <input class="md-button md-raised question primary" type="submit" ng-if="true" value="나에게 맞는 반려견 보기" ng-disabled="true" style="display:none"/>
+
      </div>
 </div>
 </form>
