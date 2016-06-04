@@ -130,8 +130,7 @@ angular.module('puppyfinder', [
       subject : "질문04 | 생활환경",
       title: "당신은 주변을 둘러보았습니다. 어떤 풍경이 보이나요?",
       content: "",
-      type: "season"
-      name: "absent",
+      type: "season",
       options: [
         { value: "true", text: "봄" },
         { value: "false", text: "여름" },

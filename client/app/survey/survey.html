@@ -53,7 +53,7 @@
                 <!-- <input ng-model="data.puppyData[questions[questionIndex].name]"  name="{{questions[questionIndex].name}}" value="{{option.value}}" ng-required="true">
                 <md-radio-group layout="row" ng-model="questions.options">
                 <md-radio-button class="md-primary"  ng-value="{{$index}}" >{{option.text}}</md-radio-button>
-                </md-radio-gruop>
+                </md-1radio-gruop>
                 <md-radio-group layout="row">
                 <md-radio-button class="md-primary">{{option.text}}</md-radio-button>-->
                 <div class="question-header">{{subject}}</div>
@@ -65,7 +65,10 @@
 
               <label ng-repeat="option in options" ng-if="!photos">
                 <md-radio-group layout="row">
-                <input class="md-primary" ng-model="questions.option" type="radio"/>{{option.text}}
+
+                      <md-radio-group layout="row" ng-model="questions.options">
+                 <md-radio-button class="md-primary"  ng-value="{{$index}}" >{{option.text}}</md-radio-button>
+
                 <br />
               </label>
               <label ng-repeat="photo in photos" ng-if="photos">
