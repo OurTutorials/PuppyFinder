@@ -31,12 +31,9 @@ export default {
 		const tourSitesCSV = path.join(__dirname, '../config', 'TourSite.csv');
 		const seasonPhotosDir = path.join(__dirname, '../..', 'client', 'assets', 'season');
 		const foodPhotosDir = path.join(__dirname, '../..', 'client', 'assets', 'food');
-		const activityPhotosDir = path.join(__dirname, '../..', 'client', 'assets', 'activity');
 
 		// csv parse option {colums} 해주면 필드 항목 인식 (name, fee 등)
 		const tourSites = parse(fs.readFileSync(tourSitesCSV, 'utf8'),{columns:true});
-
-		console.log("tourSites : " , tourSites );
 
 		const seasonPhotos = fs.readdirSync(seasonPhotosDir, 'utf8').filter((item) => {
 			return item.indexOf('@') !== -1;
@@ -44,13 +41,6 @@ export default {
 		const foodPhotos = fs.readdirSync(foodPhotosDir, 'utf8').filter((item) => {
 			return item.indexOf('_') !== -1;
 		});
-		const activityPhotos = fs.readdirSync(activityPhotosDir, 'utf8').filter((item) => {
-			return item.indexOf('@') !== -1;
-		});
-
-		// console.log('seasonPhotos: ',seasonPhotos);
-		// console.log('foodPhotos: ',foodPhotos);
-		// console.log('activityPhotos: ',activityPhotos);
 
 		for (let info of tourSites) {
 			const tourSite = new TourSite();
@@ -58,7 +48,7 @@ export default {
 			tourSite.flightFee = info.flightFee;
 			tourSite.dailyFee = info.dailyFee;
 			tourSite.description = info.description;
-
+			tourSite.activity = info.activity.split(',');
 
 			for (let fileName of seasonPhotos) {
 				let tourSiteName = fileName.split('@')[1];
@@ -80,16 +70,7 @@ export default {
 					tourSite.foodPhotos.push(`assets/food/${fileName}`);
 				}
 			}
-			for(let fileName of activityPhotos) {
-				let tourSiteName = fileName.split('@')[1];
-				let activities = fileName.split('@')[0].split(',');
 
-				if(tourSiteName.indexOf(info.name) !== -1) {
-					for(let activity of activities) {
-						tourSite.activity.push(activity);
-					}
-				}
-			}
 			tourSite.save()
 			.then(() => {
 				console.log(`Saved TourSite ${tourSite.name}`);
