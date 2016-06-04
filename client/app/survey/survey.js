@@ -70,11 +70,20 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     if($scope.questionIndex<5){
       $scope.questionIndex++;
       $('button').attr('disabled','true');
+      if($scope.questionIndex===5) {
+        $('button').css('display','none');
+        $('.md-button').css('display','');
+        $('#menu').css('display','none');
+
+
+
+        // $('.md-button').removeAttr('disabled');
+      }
     }else{
+
     //change button when last question.
-      $('.md-button').css('display','');
-      $('.md-button').removeAttr('disabled');
-      $('#menu').css('display','none');
+
+    
     }
    
     const question = questions[$scope.questionIndex];
