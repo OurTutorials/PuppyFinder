@@ -1,84 +1,76 @@
-<!-- <ul id="menu" ng-click="vm.moog('asd')" >
-  <li data-menuanchor="firstPage"><a>First slide</a></li>
-  <li data-menuanchor="secondPage"><a>Second slide</a></li>
-  <li data-menuanchor="3rdPage"><a>Third slide</a></li>
-  <li data-menuanchor="4thpage"><a>Fourth slide</a></li>
+<!-- <ul id='menu' ng-click='vm.moog('asd')' >
+  <li data-menuanchor='firstPage'><a>First slide</a></li>
+  <li data-menuanchor='secondPage'><a>Second slide</a></li>
+  <li data-menuanchor='3rdPage'><a>Third slide</a></li>
+  <li data-menuanchor='4thpage'><a>Fourth slide</a></li>
 </ul> -->
-
-<div id= 'fullpage' full-page options="vm.mainOptions" >
-
-<div class="section" id="section0" style="background-image: url('/assets/background/back0.png')" >
-    <div class="intro">
+<div id='fullpage' full-page options='vm.mainOptions'>
+  <div class='section' id='section0' style='background-image: url(' /assets/background/back0.png ')'>
+    <div class='intro'>
     </div>
-</div>
-<div class="section" id="section1" style="background-image: url('/assets/background/back1.png')">
-  <div class="intro">
+  </div>
+  <div class='section' id='section1' style='background-image: url(' /assets/background/back1.png ')'>
+    <div class='intro'>
+    </div>
+  </div>
+  <div class='section' id='section2' style='background-image: url(' /assets/background/back2.png ')'>
+    <div class='intro'>
+    </div>
+  </div>
+  <div class='section' id='section3' style='background-image: url(' /assets/background/back3.png ')'>
+    <div class='intro'>
+    </div>
+  </div>
+  <div class='section' id='section4' style='background-image: url(' /assets/background/back4.png ')'>
+    <div class='intro'>
+    </div>
+  </div>
+  <div class='section' id='section5' style='background-image: url(' /assets/background/back5.png ')'>
+    <div class='intro'>
+    </div>
   </div>
 </div>
-
-<div class="section" id="section2" style="background-image: url('/assets/background/back2.png')">
-  <div class="intro">
-  </div>
-</div>
-
-<div class="section" id="section3" style="background-image: url('/assets/background/back3.png')">
-  <div class="intro">
-  </div>
-</div>
-
-<div class="section" id="section4" style="background-image: url('/assets/background/back4.png')">
-  <div class="intro">
-  </div>
-</div>
-
-<div class="section" id="section5" style="background-image: url('/assets/background/back5.png')">
-  <div class="intro">
-  </div>
-</div>
-
-</div>
-
 <md-content>
-
-  <form name="survey" ng-submit="sendQuery()">
-
-   <div class="question_card" layout="column" layout-align="center center" style= 'background-color:rgba(0,0,0,0.6);'>
-  <!--  <div class="full-image" style = 'background-image:url("assets/season/10@toronto.png"); width:100%; height:100%;'>
+  <form name='survey' ng-submit='sendQuery()'>
+    <div class='question_card' layout='column' layout-align='center center' style='background-color:rgba(0,0,0,0.6);'>
+      <!--  <div class='full-image' style = 'background-image:url('assets/season/10@toronto.png'); width:100%; height:100%;'>
    </div> -->
-      <div class="in-card" layout="column" layout-align="center">
-          <div>
-              <div class="question-header">{{subject}}</div>
-          <h1 class="question-h1">{{title}}</h1>
-           <fieldset id="{{type}}" ng-form="{{type}}" ng-if="!photos">
-                <label ng-repeat="option in options track by $index" ng-if="!photos" aria-label="green">
-                  <md-radio-group layout="row" ng-model="questions.options">
-                   <md-radio-button class="md-primary"  ng-click="ableButton(option.value)" ng-value="{{$index}}" aria-label="green" >{{option.text}}</md-radio-button>
+      <div class='in-card' layout='column' layout-align='center'>
+        <div>
+          <div class='question-header'>{{subject}}</div>
+          <h1 class='question-h1'>{{title}}</h1>
+          <fieldset id='{{type}}' ng-form='{{type}}' ng-if='!photos'>
+            <label ng-repeat='option in options track by $index' ng-if='!photos' aria-label='green'>
+              <md-radio-group layout='row' ng-model='questions.options'>
+                <md-radio-button class='md-primary' ng-click='ableButton(option.value)' ng-value='{{$index}}' aria-label='green'>{{option.text}}</md-radio-button>
+                <br />
+          </fieldset>
+          <div id='{{type}}' ng-form='{{type}}' ng-if='photos'>
+            <div class='container' id='photo-container'>
+              <div class='row'>
+                <div class='col-md-4 col-xs-4 photobox' ng-repeat='photo in photos track by $index' ng-if='photos'>
+                  <img ng-src='{{photo}}' alt='Photo' ng-click=ableButton(photo) />
                   <br />
-            </fieldset>
-            <div id="{{type}}" ng-form="{{type}}" ng-if="photos" >
-                  <div class="container"  id="photo-container">
-                    <div class="row">
-                      <div class="col-md-4 col-xs-4 photobox" ng-repeat="photo in photos track by $index" ng-if="photos">
-                          <img ng-src="{{photo}}" alt="Photo" ng-click=ableButton(photo) />
-                      <br />
-                    </div>
-                  </div>
                 </div>
+              </div>
             </div>
-
           </div>
-          <!--fullpage를 움직여주고, 다음 질문으로 넘어가게 해 주는 버튼-->
-          <!--fullpage를 적용시켜주기 위해서 id=menu를 적용함.-->
-          <ul id="menu">
-            <li data-menuanchor="{{questionIndex+1}}">
-              <a>
-                 <button class="md-raised question" ng-if="true" ng-disabled="true" type="button" ng-click="nextquestion()"><h4>다음 질문</h4></button>
-              </a>
-            </li>
-          </ul>
-              <!-- Submit button for the entire form; disabled if any question is not answered -->
-            <input class="md-button md-raised question primary" type="submit" ng-if="true" value="나에게 맞는 여행지 보기." ng-disabled="true" style="display:none"/>
-       </div><!--incard-->
-  </div><!--question card-->
-</form>
+        </div>
+        <!--fullpage를 움직여주고, 다음 질문으로 넘어가게 해 주는 버튼-->
+        <!--fullpage를 적용시켜주기 위해서 id=menu를 적용함.-->
+        <ul id='menu'>
+          <li data-menuanchor='{{questionIndex+1}}'>
+            <a>
+              <button class='md-raised question' ng-if='true' ng-disabled='true' type='button' ng-click='nextquestion()'>
+                <h4>다음 질문</h4></button>
+            </a>
+          </li>
+        </ul>
+        <!-- Submit button for the entire form; disabled if any question is not answered -->
+        <input class="md-button md-raised question primary" type="submit" ng-if="true" value="나에게 맞는 여행지 보기." ng-disabled="true" style="display:none" />
+      </div>
+      <!--incard-->
+    </div>
+    <!--question card-->
+  </form>
 </md-content>

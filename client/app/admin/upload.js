@@ -1,4 +1,4 @@
-angular.module("Upload", [])
-.controller("UploadController", function($scope, $http, $window) {
+angular.module('Upload', [])
+  .controller('UploadController', function($scope, $http, $window) {
 
-});
+  });
