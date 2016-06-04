@@ -113,7 +113,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       }
     }
 
-    if(Object.keys($scope.answer).length>1){
+    if(Object.keys($scope.photos).length>1){
       $('.question_card').removeClass('nophoto');
       $('.question_card').addClass('photo');
     }
@@ -121,16 +121,20 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
 
   /* Method to send user's answers to the server and get results */
   $scope.sendQuery = function() {
-    //change value into type data
-    Result.getResults($scope.data.puppyData)
-      .then(function(resp) {
-        /* Put results in the window scope container set in the AppController  */
-        $window.results = resp.data;
-        return "success";
-      })
-      .then(function(success) {
-        $location.path('/result');
-      });
+    console.log('현재 입력된 데이터 : ', $scope.answer)
+    $scope.answer['food'] = reduceImageRoute($scope.answer['food'])
+    $scope.answer['activitiy'] = reduceImageRoute($scope.answer['activity']);
+    $scope.answer['season'] = reduceImageRoute($scope.answer['season']);
+    console.log($scope.answer);
+    // Result.getResults($scope.data.puppyData)
+    //   .then(function(resp) {
+         // Put results in the window scope container set in the AppController  
+    //     $window.results = resp.data;
+    //     return "success";
+    //   })
+    //   .then(function(success) {
+    //     $location.path('/result');
+    //   });
   };
 
 
@@ -144,4 +148,14 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
   };
 
   $scope.options = this.mainOptions;
+}
+
+
+function reduceImageRoute (route){
+  let lastIndex = route.lastIndexOf('_')>0?route.lastIndexOf('_'):route.lastIndexOf('.');
+  let startIndex = route.lastIndexOf('@')>0?route.lastIndexOf('@'):route.lastIndexOf('/');
+  let returnVal = '';
+  returnVal = route.slice(startIndex+1,lastIndex)
+  return returnVal;
+
 }
