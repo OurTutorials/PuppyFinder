@@ -52,6 +52,7 @@ export default {
       tourSite.dailyFee = info.dailyFee;
       tourSite.description = info.description;
       tourSite.activity = info.activity.split(',');
+      tourSite.score = 0;
 
       for (let fileName of seasonPhotos) {
         let tourSiteName = fileName.split('@')[1];
@@ -80,7 +81,7 @@ export default {
     }
   },
   send: (req, res) => {
-  	// send all collections
+    // send all collections
     TourSite.find()
       .exec(function(err, toursite) {
         if (err) {

@@ -1,4 +1,4 @@
-angular.module('puppyfinder.survey', [])
+angular.module('survey', [])
   .controller('SurveyController', SurveyController);
 
 SurveyController.$inject = ['$scope', '$window', '$location', 'QuestionList', 'Result', '$compile', 'getData']
@@ -126,9 +126,41 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
   $scope.sendQuery = function() {
     console.log('현재 입력된 데이터 : ', $scope.answer)
     $scope.answer['food'] = reduceImageRoute($scope.answer['food'])
-    $scope.answer['activitiy'] = reduceImageRoute($scope.answer['activity']);
+    $scope.answer['activity'] = reduceImageRoute($scope.answer['activity']);
     $scope.answer['season'] = reduceImageRoute($scope.answer['season']);
-    console.log($scope.answer);
+
+    const TourSitesList = [];
+    const resultScoreList = [];
+    let selected;
+
+    tourSites.forEach((tourSite) => {
+      if (tourSite.name === $scope.answer.food) {
+        tourSite.score++;
+      }
+      if (tourSite.name === $scope.answer.season) {
+        tourSite.score++;
+      }
+      if ($scope.answer.day * tourSite.dailyFee + tourSite.flightFee <= $scope.answer.money) {
+        tourSite.score++;
+      }
+      for (activity of tourSite.activity) {
+        if (activity === $scope.answer.activity) {
+          tourSite.score++;
+        }
+      }
+      TourSitesList.push(tourSite.name);
+      resultScoreList.push(tourSite.score);
+    })
+    const resultScore = resultScoreList.reduce((prev, current, currentIndex) => {
+      if (prev < current) {
+        selected = TourSitesList[currentIndex];
+        return current
+      } else {
+        return prev;
+      }
+    }, 0);
+
+    $window.selected = selected;
   };
 
 
@@ -139,8 +171,6 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
     menu: '#menu',
     lockAnchors: false,
   };
-
-  $scope.options = this.mainOptions;
 }
 
 
@@ -150,5 +180,4 @@ function reduceImageRoute(route) {
   let returnVal = '';
   returnVal = route.slice(startIndex + 1, lastIndex)
   return returnVal;
-
 }

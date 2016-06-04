@@ -1,7 +1,7 @@
 angular.module('puppyfinder', [
-    'puppyfinder.intro',
-    'puppyfinder.survey',
-    'puppyfinder.result',
+    'intro',
+    'survey',
+    'result',
     'ngRoute',
     'ngMaterial',
     'fullPage.js',
@@ -97,11 +97,11 @@ angular.module('puppyfinder', [
       title: "당신은 이곳에서 얼마나 머물 예정인가요?",
       type: "day",
       options: [
-        { value: 1, text: "1일" },
-        { value: 7, text: "1일 ~ 7일" },
-        { value: 30, text: "7일~ 30일" },
-        { value: 180, text: "30일 ~ 180일" },
-        { value: 200, text: "180일 ~" },
+        { value: 1, text: "1박 2일" },
+        { value: 4, text: "4박 5일" },
+        { value: 7, text: "7박 8일" },
+        { value: 14, text: "14박 15일" },
+        { value: 30, text: "30일 ~" },
 
       ]
     },
@@ -113,11 +113,11 @@ angular.module('puppyfinder', [
       title: "여행에 얼마를 쓰실 건가요?",
       type: "money",
       options: [
-        { value: 10, text: "1 ~ 10 만원" },
-        { value: 30, text: "10 ~ 30 만원" },
-        { value: 70, text: "30 ~ 70 만원" },
-        { value: 200, text: "70 ~ 200 만원" },
-        { value: 300, text: "200~ 만원" },
+        { value: 750000, text: "50 ~ 100 만원" },
+        { value: 2000000, text: "100 ~ 300 만원" },
+        { value: 4000000, text: "300 ~ 500 만원" },
+        { value: 6000000, text: "500 ~ 700 만원" },
+        { value: 11000000, text: "700~ 1500 만원" },
       ]
     },
 
