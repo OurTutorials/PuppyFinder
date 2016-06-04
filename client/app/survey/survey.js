@@ -109,7 +109,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       let myAct = ['food','gambling','hiking','landmark','music','shopping','sightseeing','traditional','waterSports']
       $scope.photos = [];
       for(let act of myAct ) {
-        $scope.photos.push('asset/activity/'+act+'.png');
+        $scope.photos.push('assets/activity/'+act+'.png');
       }
     }
 
