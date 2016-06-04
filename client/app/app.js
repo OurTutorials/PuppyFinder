@@ -123,34 +123,23 @@ angular.module('puppyfinder', [
 
     4: {
       subject : "질문04 | 생활환경",
-<<<<<<< e5ca9c1aa68f0c40bfe42618af9d2bcccc6d6761
-      title: "당신은 주변을 둘러보았습니다. 어떤 풍경이 보이나요?",
-=======
+
       title: "당신의 주변에 어떤 풍경이 보이나요?",
       content: "",
->>>>>>> hotCSS
       type: "season",
     },
     5: {
       subject : "질문05 | food",
-<<<<<<< e5ca9c1aa68f0c40bfe42618af9d2bcccc6d6761
-      title: "배가고파 음식점에 들어왔습니다. 음식을 주문해 주세요.",
-=======
       title: "어떤 음식이 가장 먹고싶나요?",
       content: "",
->>>>>>> hotCSS
       name: "allergic",
       type: "food",
     },
 
     6: {
       subject : "질문06 | activity",
-<<<<<<< e5ca9c1aa68f0c40bfe42618af9d2bcccc6d6761
-      title: "배도부르고 관광을 하려고 합니다. 어떤 활동을 하고싶나요?",
-=======
       title: "관광을 하려고 합니다. 어떤 활동을 하고싶나요?",
       content: "",
->>>>>>> hotCSS
       name: "friendly",
       type: "activity",
     }
