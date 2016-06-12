@@ -23,7 +23,7 @@ function SurveyController($scope, $window, $location, QuestionList, Result, $com
       questions = QuestionList.questions;
       question = questions[questionIndex];
       $scope.questions = questions;
-      $scope.questionIndex = 0;
+      $scope.questionIndex = 0
       for (let key in question) {
         $scope[key] = question[key];
       }
